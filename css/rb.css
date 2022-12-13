@@ -1,0 +1,250 @@
+@font-face {
+  font-family: 'rb';
+  src: url('fonts/rb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="rb-"], [class*=" rb-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'rb' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1.2rem;
+}
+
+.rb-print:before {
+  content: "\f02f";
+}
+.rb-linkedin-in:before {
+  content: "\f0e1";
+}
+.rb-github:before {
+  content: "\f09b";
+}
+.rb-phone:before {
+  content: "\f095";
+}
+.rb-briefcase-solid:before {
+  content: "\f0b1";
+}
+.rb-briefcase:before {
+  content: "\f8b1";
+}
+.rb-bus-solid:before {
+  content: "\f807";
+}
+.rb-bus:before {
+  content: "\f207";
+}
+.rb-campground-solid:before {
+  content: "\f6bb";
+}
+.rb-graduation-cap-solid:before {
+  content: "\f80e";
+}
+.rb-graduation-cap:before {
+  content: "\f19d";
+}
+.rb-mobile:before {
+  content: "\f3ce";
+}
+.rb-users:before {
+  content: "\f0c0";
+}
+.rb-id-card-solid:before {
+  content: "\f80d";
+}
+.rb-id-card:before {
+  content: "\f2c2";
+}
+.rb-map:before {
+  content: "\f279";
+  color: #666;
+}
+.rb-map-location-dot:before {
+  content: "\f5a0";
+  color: #1a1a1a;
+}
+.rb-mosque-solid:before {
+  content: "\f878";
+}
+.rb-mosque:before {
+  content: "\f678";
+}
+.rb-museum-solid:before {
+  content: "\f89c";
+}
+.rb-museum:before {
+  content: "\f19c";
+}
+.rb-plane-arrival-solid:before {
+  content: "\f8af";
+}
+.rb-plane-arrival:before {
+  content: "\f5af";
+}
+.rb-gift-solid:before {
+  content: "\f809";
+}
+.rb-gift:before {
+  content: "\e915";
+}
+.rb-process:before {
+  content: "\f364";
+}
+.rb-cart-shopping:before {
+  content: "\f07a";
+}
+.rb-masks-theatre-solid:before {
+  content: "\f80a";
+}
+.rb-masks-theatre:before {
+  content: "\f630";
+}
+.rb-train-solid:before {
+  content: "\f838";
+}
+.rb-train:before {
+  content: "\f238";
+}
+.rb-mug-saucer-solid:before {
+  content: "\f808";
+}
+.rb-mug-saucer:before {
+  content: "\f0f4";
+  color: #4d4d4d;
+}
+.rb-house:before {
+  content: "\f015";
+}
+.rb-face-smile:before {
+  content: "\f118";
+}
+.rb-face-frown:before {
+  content: "\f119";
+}
+.rb-envelope:before {
+  content: "\f0e0";
+}
+.rb-facebook:before {
+  content: "\f39e";
+}
+.rb-codepen:before {
+  content: "\f1cb";
+}
+.rb-twitter-solid:before {
+  content: "\f099";
+}
+.rb-instagram:before {
+  content: "\f16d";
+}
+.rb-youtube-solid:before {
+  content: "\f167";
+}
+.rb-credit-card:before {
+  content: "\f09d";
+}
+.rb-pen:before {
+  content: "\f304";
+}
+.rb-box:before {
+  content: "\f466";
+}
+.rb-magnifying-glass:before {
+  content: "\f002";
+}
+.rb-arrow-down-a-z:before {
+  content: "\f15d";
+}
+.rb-arrow-down-123:before {
+  content: "\f162";
+}
+.rb-person-praying-solid:before {
+  content: "\f883";
+}
+.rb-book-quran:before {
+  content: "\f687";
+}
+.rb-call-prayer-solid:before {
+  content: "\f89e";
+}
+.rb-call-prayer:before {
+  content: "\f09e";
+}
+.rb-globe:before {
+  content: "\f0ac";
+}
+.rb-hands-praying-solid:before {
+  content: "\f884";
+}
+.rb-hands-praying:before {
+  content: "\f684";
+}
+.rb-kaaba-solid:before {
+  content: "\f86b";
+}
+.rb-kaaba:before {
+  content: "\f66b";
+}
+.rb-easyquran-solid:before {
+  content: "\f800";
+}
+.rb-easyquran:before {
+  content: "\f801";
+}
+.rb-down:before {
+  content: "\f354";
+}
+.rb-up:before {
+  content: "\f357";
+}
+.rb-bookmark:before {
+  content: "\f02e";
+}
+.rb-copy:before {
+  content: "\f0c5";
+}
+.rb-slider:before {
+  content: "\f1de";
+}
+.rb-gear:before {
+  content: "\f013";
+}
+.rb-lectern:before {
+  content: "\f802";
+}
+.rb-circle-info:before {
+  content: "\f05a";
+}
+.rb-circle-check:before {
+  content: "\f058";
+}
+.rb-circle-xmark:before {
+  content: "\f057";
+}
+.rb-chevron-left:before {
+  content: "\f053";
+}
+.rb-chevron-right:before {
+  content: "\f054";
+}
+.rb-bracket-square:before {
+  content: "\5b";
+}
+.rb-bracket-square-right:before {
+  content: "\5d";
+}
+.rb-bracket-round:before {
+  content: "\28";
+}
+.rb-bracket-round-close:before {
+  content: "\29";
+}
+.rb-brackets-round:before {
+  content: "\e0c5";
+}
