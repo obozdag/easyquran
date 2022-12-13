@@ -1,44 +1,18 @@
--- phpMyAdmin SQL Dump
--- version 4.9.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 15, 2020 at 03:20 AM
--- Server version: 8.0.18
--- PHP Version: 7.3.9
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `fklavyenet`
---
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `fkl_sura`
 --
 
 CREATE TABLE `fkl_sura` (
-  `id` int(11) NOT NULL,
+  `id` integer NOT NULL PRIMARY KEY AUTOINCREMENT,
   `verses` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `en` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `eng` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `en` varchar(255) NOT NULL,
+  `eng` varchar(255) NOT NULL,
+  `tr` varchar(255) NOT NULL,
   `basmala` tinyint(4) NOT NULL DEFAULT '1',
   `sajdah` tinyint(1) DEFAULT NULL,
   `shortcut` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+);
 
 --
 -- Dumping data for table `fkl_sura`
@@ -159,28 +133,3 @@ INSERT INTO `fkl_sura` (`id`, `verses`, `name`, `en`, `eng`, `tr`, `basmala`, `s
 (112, 4, 'الإخلاص', 'Al-Ikhlas', 'Sincerity', 'İhlâs', 1, NULL, NULL),
 (113, 5, 'الـفلق', 'Al-Falaq', 'Daybreak', 'Felâk', 1, NULL, NULL),
 (114, 6, 'الـناس', 'An-Nas', 'Humankind', 'Nâs', 1, NULL, NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `fkl_sura`
---
-ALTER TABLE `fkl_sura`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `fkl_sura`
---
-ALTER TABLE `fkl_sura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
