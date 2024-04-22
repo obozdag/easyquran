@@ -7,7 +7,8 @@ window.onload = ()=>{
 	let bottomBtn           = document.getElementById('bottom_btn');
 	let closeNavLeftBtn     = document.getElementById('close_nav_left');
 	let closeNavRightBtn    = document.getElementById('close_nav_right');
-	let closePopupBtn       = document.getElementById('close_popup_btn');
+	let closeProgramInfoPopupBtn  = document.getElementById('close_program_info_popup_btn');
+	let closeBookmarkListPopupBtn = document.getElementById('close_bookmark_list_popup_btn');
 	let colorList           = document.getElementById('color_list');
 	let fontFamilyList      = document.getElementById('font_family_list');
 	let fontSizeList        = document.getElementById('font_size_list');
@@ -25,6 +26,9 @@ window.onload = ()=>{
 	let programInfoBtn      = document.getElementById('program_info_btn');
 	let programInfoContent  = document.getElementById('program_info_content');
 	let programInfoPopup    = document.getElementById('program_info_popup');
+	let bookmarkListBtn     = document.getElementById('bookmark_list_btn');
+	let bookmarkListContent = document.getElementById('bookmark_list_content');
+	let bookmarkListPopup   = document.getElementById('bookmark_list_popup');
 	let quranVerses         = document.getElementById('quran_verses');
 	let resetBtn            = document.getElementById('reset_btn');
 	let settingsHeader      = document.getElementById('settings_header');
@@ -169,13 +173,18 @@ window.onload = ()=>{
 		// Quran to bottom
 		bottomBtn.addEventListener('click', quranToBottom);
 
-		// Clean bookmark
-		bookmarkIcon.addEventListener('click', removeBookmark);
-
 		// Program info
-		programInfoPopup.addEventListener('click', closeInfoPopup);
-		programInfoBtn.addEventListener('click', openInfoPopup);
-		closePopupBtn.addEventListener('click', closeInfoPopup);
+		programInfoPopup.addEventListener('click', closeProgramInfoPopup);
+		programInfoBtn.addEventListener('click', openProgramInfoPopup);
+		closeProgramInfoPopupBtn.addEventListener('click', closeProgramInfoPopup);
+
+		// Bookmark list
+		bookmarkListPopup.addEventListener('click', closeBookmarkListPopup);
+		bookmarkListBtn.addEventListener('click', openBookmarkListPopup);
+		closeBookmarkListPopupBtn.addEventListener('click', closeBookmarkListPopup);
+
+		// Clean bookmark
+		// bookmarkIcon.addEventListener('click', removeBookmark);
 
 		// Nav left
 		openNavLeftBtn.addEventListener('click', openNavLeft);
@@ -464,6 +473,7 @@ window.onload = ()=>{
 		navLeft.classList.remove('open');
 		navRight.classList.remove('open');
 		programInfoPopup.classList.remove('open');
+		bookmarkListPopup.classList.remove('open');
 	}
 
 	function closeNavLeft()
@@ -481,6 +491,7 @@ window.onload = ()=>{
 		navLeft.classList.toggle('open');
 		navRight.classList.remove('open');
 		programInfoPopup.classList.remove('open');
+		bookmarkListPopup.classList.remove('open');
 	}
 
 	function openNavRight()
@@ -488,9 +499,10 @@ window.onload = ()=>{
 		navLeft.classList.remove('open');
 		navRight.classList.toggle('open');
 		programInfoPopup.classList.remove('open');
+		bookmarkListPopup.classList.remove('open');
 	}
 
-	async function openInfoPopup()
+	async function openProgramInfoPopup()
 	{
 		navLeft.classList.remove('open');
 		navRight.classList.remove('open');
@@ -508,9 +520,32 @@ window.onload = ()=>{
 		return result
 	}
 
-	function closeInfoPopup()
+	function closeProgramInfoPopup()
 	{
 		programInfoPopup.classList.remove('open');
+	}
+
+	async function openBookmarkListPopup()
+	{
+		navLeft.classList.remove('open');
+		navRight.classList.remove('open');
+		bookmarkListContent.innerHTML = await fillBookmarkList()
+		bookmarkListPopup.classList.toggle('open');
+	}
+
+	async function fillBookmarkList()
+	{
+		result = ''
+		let bookmarkTarget = localStorage.getItem('bookmarkTarget')
+		await fetch(path).then(data=>data.text()).then(html=>{
+			result = html
+		})
+		return result
+	}
+
+	function closeBookmarkListPopup()
+	{
+		bookmarkListPopup.classList.remove('open');
 	}
 
 	function quranToTop()

@@ -14,7 +14,6 @@ fontSizes = {}; for(i=16; i<=64;i+=2){fontSizes[i+'px'] = i;};
 
 fontFamilies  = {
 	'EasyArabic' : 'EasyArabic',
-	'Lateef'     : 'Lateef',
 };
 
 colors = {
