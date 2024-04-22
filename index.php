@@ -119,11 +119,11 @@
 	<div class="container" id="quran_container">
 		<div id="quran_verses" class="arabic">
 		<?php	foreach($rows_verse as $row): ?>
-			<?php
-				$page                   = $row['page'];
-				$sura_sajdah            = $row['sura_sajdah'] ? '*': '';
-				$sura_info              = ' ('.$row['verses'].')'.$sura_sajdah;
-			?>
+		<?php
+			$page                   = $row['page'];
+			$sura_sajdah            = $row['sura_sajdah'] ? '*': '';
+			$sura_info              = ' ('.$row['verses'].')'.$sura_sajdah;
+		?>
 			<?php if($page !== null): ?>
 				<?php if($page > 0): ?>
 				</section>
@@ -137,8 +137,8 @@
 			?>
 			<p class="pip">
 			<?php if($row['new_juz']): ?>
-				<?php $juz_anchor_label = 'Cüz '.$row['new_juz']; ?>
-				<?php $juz_anchor_href  = 'j'.$row['new_juz']; ?>
+			<?php $juz_anchor_label = 'Cüz '.$row['new_juz']; ?>
+			<?php $juz_anchor_href  = 'j'.$row['new_juz']; ?>
 				<i class="ca" id="<?= $juz_anchor_href ?>"><?= $juz_anchor_label ?></i>
 			<?php endif; ?>
 				<i class="pa" id="<?= $page_anchor_href ?>" ><?= $page_anchor_label ?></i>
@@ -147,8 +147,8 @@
 			</p>
 			<?php endif; ?>
 			<?php if ($row['new_sura']): ?>
-				<?php $sura_href   = 's'.$row['sura_id']; ?>
-				<?php $sura_header = $row['sura_id'].' '.$row['sura_tr'].$sura_info.' سُورَةُ '.$row['sura_name']; ?>
+			<?php $sura_href   = 's'.$row['sura_id']; ?>
+			<?php $sura_header = $row['sura_id'].' '.$row['sura_tr'].$sura_info.' سُورَةُ '.$row['sura_name']; ?>
 			<h4 class="sn" id="<?= $sura_href ?>"><?= $sura_header ?></h4>
 				<?php if ($row['basmala']): ?>
 				<p class="basmala">بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ</p>
@@ -160,16 +160,9 @@
 		</div>
 		<div class="overlay" id="program_info_popup">
 			<div class="popup">
-				<i id="close_program_info_popup_btn" class="close-btn right rb-circle-xmark"></i>
+				<i id="close_popup_btn" class="close_btn right rb-circle-xmark"></i>
 				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
 				<div id="program_info_content"></div>
-			</div>
-		</div>
-		<div class="overlay" id="bookmark_list_popup">
-			<div class="popup">
-				<i id="close_bookmark_list_popup_btn" class="close-btn right rb-circle-xmark"></i>
-				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
-				<div id="bookmark_list_content"></div>
 			</div>
 		</div>
 	</div>

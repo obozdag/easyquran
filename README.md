@@ -23,6 +23,7 @@ After installing without internet connection it can run offline.
 - Background color selection
 - Bookmark juz or page
 - Printable (press Ctrl+P)
+- Uses SQLite as database
 
 For feature requests or any bug reports please send email to info at fklavye dot net
 
