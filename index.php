@@ -31,18 +31,15 @@
 		</div>
 	</div>
 	<nav id="nav_top">
-		<i id="open_nav_left" class="nav-top-btn rb-book-quran" title="Nav Left"></i>
-		<i id="program_info_btn" class="nav-top-btn rb-easyquran-solid" title="Program Info"></i>
-		<i id="top_btn" class="nav-top-btn rb-up" title="Top"></i>
-		<i id="bottom_btn" class="nav-top-btn rb-down" title="Bottom"></i>
-		<span>
-			<i id="bookmark_list_btn" class="nav-top-btn rb-bookmark" title="Bookmark"></i>
-			<span id="bookmark_container"></span>
-		</span>
-		<i id="open_nav_right" class="nav-top-btn rb-slider" title="Nav Right"></i>
+		<i id="open_nav_left" class="nav_top_btn rb-book-quran" title="Nav Left"></i>
+		<i id="program_info_btn" class="nav_top_btn rb-easyquran-solid" title="Program Info"></i>
+		<i id="top_btn" class="nav_top_btn rb-up" title="Top"></i>
+		<i id="bottom_btn" class="nav_top_btn rb-down" title="Bottom"></i>
+		<span><i class="nav_top_btn rb-bookmark" id="bookmark_icon" title="Bookmark"></i><span id="bookmark_container"></span></span>
+		<i id="open_nav_right" class="nav_top_btn rb-slider" title="Nav Right"></i>
 	</nav>
 	<nav id="nav_left" class="nav-side">
-		<i class="close-btn right rb-circle-xmark" id="close_nav_left"></i>
+		<i class="close_btn right rb-circle-xmark" id="close_nav_left"></i>
 		<div class="settings">
 			<div class="row">
 				<label id="sura_list_label"></label>
@@ -57,8 +54,8 @@
 						// endforeach;
 						?>
 					</select>
-					<button type="button" class="btn btn-nav mr-1" id="sura_az_order" title="Order by Sura Name"><i class="rb-arrow-down-a-z"></i></button>
-					<button type="button" class="btn btn-nav" id="sura_id_order"><i class="rb-arrow-down-123" title="Order by Sura Number"></i></button>
+					<button type="button" class="btn btn_nav mr-1" id="sura_az_order" title="Order by Sura Name"><i class="rb-arrow-down-a-z"></i></button>
+					<button type="button" class="btn btn_nav" id="sura_id_order"><i class="rb-arrow-down-123" title="Order by Sura Number"></i></button>
 				</div>
 			</div>
 			<div class="row">
@@ -71,7 +68,7 @@
 				<label id="page_input_label"></label>
 				<span class="goto_page_container">
 					<input type="text" id="page_no" size="3" min="0" max="604" maxlength="3" pattern="\d{1,3}" title="Sayfa numarası 0-604">
-					<button type="button" class="btn btn-nav" id="goto_page_btn"></button>
+					<button type="button" class="btn btn_nav" id="goto_page_btn"></button>
 				</span>
 			</div>
 			<div class="row" id="sura_shortcuts_row">
@@ -84,7 +81,7 @@
 		</div>
 	</nav>
 	<nav id="nav_right" class="nav-side">
-		<i class="close-btn left rb-circle-xmark" id="close_nav_right"></i>
+		<i class="close_btn left rb-circle-xmark" id="close_nav_right"></i>
 		<h4 id="settings_header"></h4>
 		<div class="settings">
 			<div class="row">
@@ -109,7 +106,7 @@
 			</div>
 			<div class="row">
 				<label></label>
-				<button type="button" class="btn btn-nav" id="reset_btn"></button>
+				<button type="button" class="btn btn_nav" id="reset_btn"></button>
 			</div>
 			<div id="nav_loading" class="nav-loading">
 				<p id="settings_message"></p>
@@ -167,7 +164,7 @@
 		</div>
 	</div>
 	<footer>
-		<a target="_blank" href="https://github.com/obozdag/quran"><i class="logo rb-easyquran-solid" title="Easy Quran"></i> Easy Quran</a>
+		<a target="_blank" href="https://github.com/obozdag/easyquran"><i class="logo rb-easyquran-solid" title="Easy Quran"></i> Easy Quran</a>
 	</footer>
 	<script src="/js/swipe.js"></script>
 	<script src="/js/lang.js"></script>
