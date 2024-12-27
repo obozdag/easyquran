@@ -1,8 +1,8 @@
-var version = 'v1.93.09'
+var version = 'v1.93.11'
 var cacheName = 'EasyQuran ' + version
 var staticContentToCache = [
 	'/',
-	'index.html',
+	'index.php',
 	'favicon.ico',
 	'css/fonts.css',
 	'css/rb.css',

@@ -35,7 +35,7 @@
 		<i id="program_info_btn" class="nav_top_btn rb-easyquran-solid" title="Program Info"></i>
 		<i id="top_btn" class="nav_top_btn rb-up" title="Top"></i>
 		<i id="bottom_btn" class="nav_top_btn rb-down" title="Bottom"></i>
-		<span><i class="nav_top_btn rb-bookmark" id="bookmark_icon" title="Bookmark"></i><span id="bookmark_container"></span></span>
+		<span><i id="bookmark_list_btn" class="nav_top_btn rb-bookmark" title="Bookmark"></i><span id="bookmark_container"></span></span>
 		<i id="open_nav_right" class="nav_top_btn rb-slider" title="Nav Right"></i>
 	</nav>
 	<nav id="nav_left" class="nav-side">
@@ -148,7 +148,7 @@
 			<?php $sura_header = $row['sura_id'].' '.$row['sura_tr'].$sura_info.' سُورَةُ '.$row['sura_name']; ?>
 			<h4 class="sn" id="<?= $sura_href ?>"><?= $sura_header ?></h4>
 				<?php if ($row['basmala']): ?>
-				<p class="basmala">بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+				<p class="basmala">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحٖيمِ</p>
 				<?php endif; ?>
 			<?php endif; ?>
 			<i class="vn" id="v<?= $row['id'] ?>" data-label="<?= $page_anchor_data_label.' a'.$row['verse_no'] ?>">(<?= $row['verse_no'] ?>)</i><i<?= $row['sajdah'] ? ' class="sajdah"' : '' ?>><?= $row['verse'] ?></i>
@@ -157,9 +157,17 @@
 		</div>
 		<div class="overlay" id="program_info_popup">
 			<div class="popup">
-				<i id="close_popup_btn" class="close_btn right rb-circle-xmark"></i>
+				<i id="program_info_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
 				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
 				<div id="program_info_content"></div>
+			</div>
+		</div>
+		<div class="overlay" id="bookmark_list_popup">
+			<div class="popup">
+				<i id="bookmark_list_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
+				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
+				<h4>Bookmark List</h4>
+				<div id="bookmark_list_content"></div>
 			</div>
 		</div>
 	</div>

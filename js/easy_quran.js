@@ -3,12 +3,13 @@ window.onload = ()=>{
 	// Define elements
 	let bgColorList         = document.getElementById('bg_color_list');
 	let bookmarkContainer   = document.getElementById('bookmark_container');
-	let bookmarkIcon        = document.getElementById('bookmark_icon');
+	let bookmarkListBtn     = document.getElementById('bookmark_list_btn');
+	let bookmarkListContent = document.getElementById('bookmark_list_content');
+	let bookmarkListPopup   = document.getElementById('bookmark_list_popup');
+	let bookmarkListPopupCloseBtn = document.getElementById('bookmark_list_popup_close_btn');
 	let bottomBtn           = document.getElementById('bottom_btn');
 	let closeNavLeftBtn     = document.getElementById('close_nav_left');
 	let closeNavRightBtn    = document.getElementById('close_nav_right');
-	let closeProgramInfoPopupBtn  = document.getElementById('close_program_info_popup_btn');
-	let closeBookmarkListPopupBtn = document.getElementById('close_bookmark_list_popup_btn');
 	let colorList           = document.getElementById('color_list');
 	let fontFamilyList      = document.getElementById('font_family_list');
 	let fontSizeList        = document.getElementById('font_size_list');
@@ -26,16 +27,14 @@ window.onload = ()=>{
 	let programInfoBtn      = document.getElementById('program_info_btn');
 	let programInfoContent  = document.getElementById('program_info_content');
 	let programInfoPopup    = document.getElementById('program_info_popup');
-	let bookmarkListBtn     = document.getElementById('bookmark_list_btn');
-	let bookmarkListContent = document.getElementById('bookmark_list_content');
-	let bookmarkListPopup   = document.getElementById('bookmark_list_popup');
+	let programInfoPopupCloseBtn  = document.getElementById('program_info_popup_close_btn');
 	let quranVerses         = document.getElementById('quran_verses');
 	let resetBtn            = document.getElementById('reset_btn');
 	let settingsHeader      = document.getElementById('settings_header');
 	let settingsMessage     = document.getElementById('settings_message');
-	let suraList            = document.getElementById('sura_list');
-	let suraIdOrderBtn      = document.getElementById('sura_id_order');
 	let suraAzOrderBtn      = document.getElementById('sura_az_order');
+	let suraIdOrderBtn      = document.getElementById('sura_id_order');
+	let suraList            = document.getElementById('sura_list');
 	let suraShortcutList    = document.getElementById('sura_shortcuts');
 	let topBtn              = document.getElementById('top_btn');
 
@@ -176,12 +175,12 @@ window.onload = ()=>{
 		// Program info
 		programInfoPopup.addEventListener('click', closeProgramInfoPopup);
 		programInfoBtn.addEventListener('click', openProgramInfoPopup);
-		closeProgramInfoPopupBtn.addEventListener('click', closeProgramInfoPopup);
+		programInfoPopupCloseBtn.addEventListener('click', closeProgramInfoPopup);
 
 		// Bookmark list
 		bookmarkListPopup.addEventListener('click', closeBookmarkListPopup);
 		bookmarkListBtn.addEventListener('click', openBookmarkListPopup);
-		closeBookmarkListPopupBtn.addEventListener('click', closeBookmarkListPopup);
+		bookmarkListPopupCloseBtn.addEventListener('click', closeBookmarkListPopup);
 
 		// Clean bookmark
 		// bookmarkIcon.addEventListener('click', removeBookmark);
@@ -297,19 +296,19 @@ window.onload = ()=>{
 
 	function setLabels(language)
 	{
-		suraListLabel.textContent       = translations[language][suraListLabel.id];
-		suraShortcutsLabel.textContent  = translations[language][suraShortcutsLabel.id];
-		juzListLabel.textContent        = translations[language][juzListLabel.id];
-		pageInputLabel.textContent      = translations[language][pageInputLabel.id];
+		bgColorListLabel.textContent    = translations[language][bgColorListLabel.id];
+		colorListLabel.textContent      = translations[language][colorListLabel.id];
 		fontFamilyListLabel.textContent = translations[language][fontFamilyListLabel.id];
 		fontSizeListLabel.textContent   = translations[language][fontSizeListLabel.id];
-		colorListLabel.textContent      = translations[language][colorListLabel.id];
-		bgColorListLabel.textContent    = translations[language][bgColorListLabel.id];
-		languageListLabel.textContent   = translations[language][languageListLabel.id];
 		gotoPageBtn.textContent         = translations[language][gotoPageBtn.id];
+		juzListLabel.textContent        = translations[language][juzListLabel.id];
+		languageListLabel.textContent   = translations[language][languageListLabel.id];
+		pageInputLabel.textContent      = translations[language][pageInputLabel.id];
 		resetBtn.textContent            = translations[language][resetBtn.id];
 		settingsHeader.textContent      = translations[language][settingsHeader.id];
 		settingsMessage.textContent     = translations[language][settingsMessage.id];
+		suraListLabel.textContent       = translations[language][suraListLabel.id];
+		suraShortcutsLabel.textContent  = translations[language][suraShortcutsLabel.id];
 	}
 
 	function fillSelects()
@@ -453,27 +452,27 @@ window.onload = ()=>{
 		if (answer)
 		{
 			// Reset selection list values
+			bgColorList.value    = defaultBgColor;
+			colorList.value      = defaultColor;
 			fontFamilyList.value = defaultFontFamily;
 			fontSizeList.value   = defaultFontSize;
-			colorList.value      = defaultColor;
-			bgColorList.value    = defaultBgColor;
 			languageList.value   = defaultLanguage;
 
 			// Propagate reset settings
+			bgColorList.dispatchEvent(new Event('change', {'bubbles': true}));
+			colorList.dispatchEvent(new Event('change', {'bubbles': true}));
 			fontFamilyList.dispatchEvent(new Event('change', {'bubbles': true}));
 			fontSizeList.dispatchEvent(new Event('change', {'bubbles': true}));
-			colorList.dispatchEvent(new Event('change', {'bubbles': true}));
-			bgColorList.dispatchEvent(new Event('change', {'bubbles': true}));
 			languageList.dispatchEvent(new Event('change', {'bubbles': true}));
 		}
 	}
 
 	function closeNavs()
 	{
+		bookmarkListPopup.classList.remove('open');
 		navLeft.classList.remove('open');
 		navRight.classList.remove('open');
 		programInfoPopup.classList.remove('open');
-		bookmarkListPopup.classList.remove('open');
 	}
 
 	function closeNavLeft()
@@ -488,18 +487,18 @@ window.onload = ()=>{
 
 	function openNavLeft()
 	{
+		bookmarkListPopup.classList.remove('open');
 		navLeft.classList.toggle('open');
 		navRight.classList.remove('open');
 		programInfoPopup.classList.remove('open');
-		bookmarkListPopup.classList.remove('open');
 	}
 
 	function openNavRight()
 	{
+		bookmarkListPopup.classList.remove('open');
 		navLeft.classList.remove('open');
 		navRight.classList.toggle('open');
 		programInfoPopup.classList.remove('open');
-		bookmarkListPopup.classList.remove('open');
 	}
 
 	async function openProgramInfoPopup()
@@ -512,7 +511,7 @@ window.onload = ()=>{
 
 	async function fetchLangHTML(language, file)
 	{
-		result = ''
+		let result = ''
 		path = 'languages/'+language+'/'+file+'.html?'+Date.now()
 		await fetch(path).then(data=>data.text()).then(html=>{
 			result = html
@@ -535,11 +534,12 @@ window.onload = ()=>{
 
 	async function fillBookmarkList()
 	{
-		result = ''
+		let result = ''
 		let bookmarkTarget = localStorage.getItem('bookmarkTarget')
-		await fetch(path).then(data=>data.text()).then(html=>{
-			result = html
-		})
+		// await fetch(path).then(data=>data.text()).then(html=>{
+		// 	result = html
+		// })
+		result = bookmarkTarget;
 		return result
 	}
 

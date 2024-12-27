@@ -241,7 +241,7 @@ i {
 	color: var(--set-color);
 	background-color: white;
 }
-#bookmark_icon {
+#bookmark_list_btn {
 	margin-right: 1rem;
 	cursor: pointer;
 }
