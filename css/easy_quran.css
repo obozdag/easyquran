@@ -10,7 +10,7 @@
 	--set-color: brown; /* color to change in settings */ /* SET IN JS */
 	--set-font-family: 'EasyArabic'; /* arabic font family */ /* SET IN JS */
 	--icon-font-family: 'rb'; /* icons font family */
-	--set-font-size: 28px; /* arabic font size */ /* SET IN JS */
+	--set-font-size: 36px; /* arabic font size */ /* SET IN JS */
 	--theme-color: teal; /* application theme color */
 	--sajdah-content: teal; /* application theme color */
 }

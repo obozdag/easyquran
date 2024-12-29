@@ -1,7 +1,7 @@
 defaultBgColor    = 'cornsilk';
 defaultColor      = 'brown';
 defaultFontFamily = 'EasyArabic';
-defaultFontSize   = '28px';
+defaultFontSize   = '36px';
 
 languages = {
 	'tr' : 'Türkçe',
