@@ -1,5 +1,5 @@
 <?php
-	$version     = 'v1.93';
+	$version     = 'v1.93.14';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');
@@ -117,9 +117,9 @@
 		<div id="quran_verses" class="arabic">
 		<?php	foreach($rows_verse as $row): ?>
 		<?php
-			$page                   = $row['page'];
-			$sura_sajdah            = $row['sura_sajdah'] ? '*': '';
-			$sura_info              = ' ('.$row['verses'].')'.$sura_sajdah;
+			$page        = $row['page'];
+			$sura_sajdah = $row['sura_sajdah'] ? '*': '';
+			$sura_info   = ' ('.$row['verses'].')'.$sura_sajdah;
 		?>
 			<?php if($page !== null): ?>
 				<?php if($page > 0): ?>
@@ -172,7 +172,7 @@
 		</div>
 	</div>
 	<footer>
-		<a target="_blank" href="https://github.com/obozdag/easyquran"><i class="logo rb-easyquran-solid" title="Easy Quran"></i> Easy Quran</a>
+		<a target="_blank" href="https://github.com/obozdag/easyquran"><i class="logo rb-easyquran-solid" title="Easy Quran"></i> Easy Quran <?= $version ?></a>
 	</footer>
 	<script src="/js/swipe.js"></script>
 	<script src="/js/lang.js"></script>
