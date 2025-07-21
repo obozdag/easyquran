@@ -1,5 +1,5 @@
 <?php
-	$version     = 'v1.93.14';
+	$version     = 'v1.93.16';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');
@@ -20,6 +20,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/easy_quran.css">
 	<link rel="apple-touch-icon" href="/css/icons/easy_quran_96x96.png">
 	<link rel="manifest" href="/easy_quran.json">
+	<script type="text/javascript">
+		var version = '<?= $version ?>'
+	</script>
 </head>
 <body>
 	<div id="loading_overlay">

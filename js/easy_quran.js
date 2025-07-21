@@ -207,7 +207,8 @@ window.onload = ()=>{
 		{
 			bookmarkTarget = localStorage.getItem('bookmarkTarget');
 			bookmarkLabel  = localStorage.getItem('bookmarkLabel');
-			setBookmark(bookmarkTarget, bookmarkLabel);
+			bookmarkType   = localStorage.getItem('bookmarkType');
+			setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType);
 			gotoBookmark(bookmarkTarget);
 		}
 
@@ -382,9 +383,11 @@ window.onload = ()=>{
 		}
 		bookmarkLabel  = bookmarkTarget.startsWith('v') ? this.dataset.label : this.textContent;
 		setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType);
+		bookmarks.push({bookmarkTarget: bookmarkTarget, bookmarkLabel: bookmarkLabel, bookmarkType: bookmarkType});
 		localStorage.setItem('bookmarkTarget', bookmarkTarget);
 		localStorage.setItem('bookmarkLabel', bookmarkLabel);
 		localStorage.setItem('bookmarkType', bookmarkType);
+		localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 	}
 
 	function setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType)
@@ -688,6 +691,5 @@ window.onload = ()=>{
 			loadingOverlay.style.visibility = 'hidden';
 			loadingOverlay.style.display = 'none';
 		}
-
 	}
 };

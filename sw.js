@@ -1,5 +1,3 @@
-var version = 'v1.93.14'
-var cacheName = 'EasyQuran ' + version
 var staticContentToCache = [
 	'/',
 	'index.php',
@@ -34,7 +32,7 @@ var staticContentToCache = [
 // Installing Service Worker
 self.addEventListener('install', evt => {
 	evt.waitUntil(
-		caches.open(cacheName).then(cache => {
+		caches.open(version).then(cache => {
 			return staticContentToCache.forEach(function(file){
 				cache.add(file).catch(err => console.log(err+file))
 			})
@@ -47,7 +45,7 @@ self.addEventListener('activate', evt => {
 	evt.waitUntil(
 		caches.keys().then(keys => {
 			return Promise.all(keys
-				.filter(key => key !== cacheName)
+				.filter(key => key !== version)
 				.map(key => caches.delete(key))
 			)
 	}))})
