@@ -1,4 +1,5 @@
 <?php
+	$prg_name    = 'Easy Quran';
 	$version     = 'v1.93.16';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
@@ -21,8 +22,14 @@
 	<link rel="apple-touch-icon" href="/css/icons/easy_quran_96x96.png">
 	<link rel="manifest" href="/easy_quran.json">
 	<script type="text/javascript">
-		var version = '<?= $version ?>'
+		var prg_name = '<?= $prg_name ?>';
+		var version  = '<?= $version ?>';
 	</script>
+	<script src="/js/swipe.js"></script>
+	<script src="/js/lang.js"></script>
+	<script src="/js/settings.js"></script>
+	<script src="/js/easy_quran.js"></script>
+	<script src="/app.js"></script>
 </head>
 <body>
 	<div id="loading_overlay">
@@ -161,27 +168,23 @@
 		<div class="overlay" id="program_info_popup">
 			<div class="popup">
 				<i id="program_info_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
-				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
+				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
 				<div id="program_info_content"></div>
 			</div>
 		</div>
 		<div class="overlay" id="bookmark_list_popup">
 			<div class="popup">
 				<i id="bookmark_list_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
-				<h3><i class="logo rb-easyquran-solid"></i> Easy Quran <?= $version ?></h3>
-				<h4>Bookmark List</h4>
+				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
+				<h4 id="bookmark_list_header">Bookmark List</h4>
 				<div id="bookmark_list_content"></div>
 			</div>
 		</div>
 	</div>
 	<footer>
-		<a target="_blank" href="https://github.com/obozdag/easyquran"><i class="logo rb-easyquran-solid" title="Easy Quran"></i> Easy Quran <?= $version ?></a>
+		<a target="_blank" href="https://github.com/obozdag/easyquran">
+			<i class="logo rb-easyquran-solid" title="<?= $prg_name ?>"></i>
+			 <?= $prg_name.' '.$version ?>
 	</footer>
-	<script src="/js/swipe.js"></script>
-	<script src="/js/lang.js"></script>
-	<script src="/js/settings.js"></script>
-	<script src="/js/easy_quran.js"></script>
-	<script src="/app.js"></script>
-	<!--index.php-->
 </body>
 </html>

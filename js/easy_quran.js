@@ -2,6 +2,7 @@ window.onload = ()=>{
 
 	// Define elements
 	let bgColorList         = document.getElementById('bg_color_list');
+	let bookmarkListHeader  = document.getElementById('bookmark_list_header');
 	let bookmarkContainer   = document.getElementById('bookmark_container');
 	let bookmarkListBtn     = document.getElementById('bookmark_list_btn');
 	let bookmarkListContent = document.getElementById('bookmark_list_content');
@@ -57,6 +58,7 @@ window.onload = ()=>{
 	let suraListLabel       = document.getElementById('sura_list_label');
 	let suraShortcutsLabel  = document.getElementById('sura_shortcuts_label');
 
+	const bookmarks         = [];
 
 	loading(false);
 
@@ -298,6 +300,7 @@ window.onload = ()=>{
 	function setLabels(language)
 	{
 		bgColorListLabel.textContent    = translations[language][bgColorListLabel.id];
+		bookmarkListHeader.textContent  = translations[language][bookmarkListHeader.id];
 		colorListLabel.textContent      = translations[language][colorListLabel.id];
 		fontFamilyListLabel.textContent = translations[language][fontFamilyListLabel.id];
 		fontSizeListLabel.textContent   = translations[language][fontSizeListLabel.id];
@@ -514,11 +517,9 @@ window.onload = ()=>{
 
 	async function fetchLangHTML(language, file)
 	{
-		let result = ''
-		path = 'languages/'+language+'/'+file+'.html?'+Date.now()
-		await fetch(path).then(data=>data.text()).then(html=>{
-			result = html
-		})
+		result = ''
+		path = 'languages/' + language + '/' + file + '.php?' + Date.now()
+		await fetch(path).then(data => data.text()).then(html => {result = html})
 		return result
 	}
 

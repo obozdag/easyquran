@@ -1,4 +1,4 @@
-# Easy Quran v1.93.14
+# Easy Quran
 Easy Quran is a progressive web application. You can read on web page and install on your mobile device.
 
 After installing without internet connection it can run offline.

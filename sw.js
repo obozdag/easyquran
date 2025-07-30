@@ -1,5 +1,5 @@
+var version
 var staticContentToCache = [
-	'/',
 	'index.php',
 	'favicon.ico',
 	'css/fonts.css',
