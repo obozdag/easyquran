@@ -41,5 +41,5 @@
 <p style="color: red"><small>While starting and changing settings it may take a bit time. Please be patient. Then scrolling is lightning fast!</small></p>
 <p><small>For feature requests or any bug reports please send email to info at fklavye dot net</small></p>
 <p><small>That is an open source project. You can contribute on <a target="_blank" href="https://github.com/obozdag/quran" style="color: var(--set-color);">github</a></small></p>
-<p><small><a target="_blank" href="https://dua.fklavye.net" style="color: var(--set-color);"><i class="logo rb-hands-praying-solid"></i> Easy Dua</a> is another open source project to easily read Jawshan</small></p>
-<p>To learn how to use Easy Quran please watch the <a target="_blank" href="https://www.youtube.com/watch?v=I1kzq1w02FA" style="color: var(--set-color);">video <i class="rb-youtube-solid"></i></a>.</p>
+<p><small><a target="_blank" href="https://dua.fklavye.net" style="color: var(--set-color);"><i class="logo rb-hands-praying-solid"></i> Easy Dua</a> is another open source project to easily read Jawshan and some other duas.</small></p>
+<p><small><a target="_blank" href="https://prayer.fklavye.net" style="color: var(--set-color);"><i class="logo rb-call-prayer-solid"></i> Easy Prayer</a> is another open source project to see prayer times.</small></p>
