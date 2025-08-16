@@ -1,43 +1,43 @@
 window.onload = ()=>{
 
 	// Define elements
-	let bgColorList         = document.getElementById('bg_color_list');
-	let bookmarkListHeader  = document.getElementById('bookmark_list_header');
-	let bookmarkContainer   = document.getElementById('bookmark_container');
-	let bookmarkListBtn     = document.getElementById('bookmark_list_btn');
-	let bookmarkListContent = document.getElementById('bookmark_list_content');
-	let bookmarkListPopup   = document.getElementById('bookmark_list_popup');
-	let bookmarkListPopupCloseBtn = document.getElementById('bookmark_list_popup_close_btn');
-	let bottomBtn           = document.getElementById('bottom_btn');
-	let closeNavLeftBtn     = document.getElementById('close_nav_left');
-	let closeNavRightBtn    = document.getElementById('close_nav_right');
-	let colorList           = document.getElementById('color_list');
-	let fontFamilyList      = document.getElementById('font_family_list');
-	let fontSizeList        = document.getElementById('font_size_list');
-	let gotoPageBtn         = document.getElementById('goto_page_btn');
-	let juzList             = document.getElementById('juz_list');
-	let languageList        = document.getElementById('language_list');
+	let bgColorList         = document.getElementById('bg-color-list');
+	let bookmarkListHeader  = document.getElementById('bookmark-list-header');
+	let bookmarkContainer   = document.getElementById('bookmark-container');
+	let bookmarkListBtn     = document.getElementById('bookmark-list-btn');
+	let bookmarkListContent = document.getElementById('bookmark-list-content');
+	let bookmarkListPopup   = document.getElementById('bookmark-list-popup');
+	let bookmarkListPopupCloseBtn = document.getElementById('bookmark-list-popup-close-btn');
+	let bottomBtn           = document.getElementById('bottom-btn');
+	let closeNavLeftBtn     = document.getElementById('close-nav-left');
+	let closeNavRightBtn    = document.getElementById('close-nav-right');
+	let colorList           = document.getElementById('color-list');
+	let fontFamilyList      = document.getElementById('font-family-list');
+	let fontSizeList        = document.getElementById('font-size-list');
+	let gotoPageBtn         = document.getElementById('goto-page-btn');
+	let juzList             = document.getElementById('juz-list');
+	let languageList        = document.getElementById('language-list');
 	let loadingOverlay      = document.getElementById('loading_overlay');
-	let navLeft             = document.getElementById('nav_left');
-	let navLoading          = document.getElementById('nav_loading');
-	let navRight            = document.getElementById('nav_right');
-	let navTop              = document.getElementById('nav_top');
-	let openNavLeftBtn      = document.getElementById('open_nav_left');
-	let openNavRightBtn     = document.getElementById('open_nav_right');
-	let pageNo              = document.getElementById('page_no');
-	let programInfoBtn      = document.getElementById('program_info_btn');
-	let programInfoContent  = document.getElementById('program_info_content');
-	let programInfoPopup    = document.getElementById('program_info_popup');
-	let programInfoPopupCloseBtn  = document.getElementById('program_info_popup_close_btn');
-	let quranVerses         = document.getElementById('quran_verses');
-	let resetBtn            = document.getElementById('reset_btn');
-	let settingsHeader      = document.getElementById('settings_header');
-	let settingsMessage     = document.getElementById('settings_message');
-	let suraAzOrderBtn      = document.getElementById('sura_az_order');
-	let suraIdOrderBtn      = document.getElementById('sura_id_order');
-	let suraList            = document.getElementById('sura_list');
-	let suraShortcutList    = document.getElementById('sura_shortcuts');
-	let topBtn              = document.getElementById('top_btn');
+	let navLeft             = document.getElementById('nav-left');
+	let navLoading          = document.getElementById('nav-loading');
+	let navRight            = document.getElementById('nav-right');
+	let navTop              = document.getElementById('nav-top');
+	let openNavLeftBtn      = document.getElementById('open-nav-left');
+	let openNavRightBtn     = document.getElementById('open-nav-right');
+	let pageNo              = document.getElementById('page-no');
+	let programInfoBtn      = document.getElementById('program-info-btn');
+	let programInfoContent  = document.getElementById('program-info-content');
+	let programInfoPopup    = document.getElementById('program-info-popup');
+	let programInfoPopupCloseBtn  = document.getElementById('program-info-popup-close-btn');
+	let quranVerses         = document.getElementById('quran-verses');
+	let resetBtn            = document.getElementById('reset-btn');
+	let settingsHeader      = document.getElementById('settings-header');
+	let settingsMessage     = document.getElementById('settings-message');
+	let suraAzOrderBtn      = document.getElementById('sura-az-order');
+	let suraIdOrderBtn      = document.getElementById('sura-id-order');
+	let suraList            = document.getElementById('sura-list');
+	let suraShortcutList    = document.getElementById('sura-shortcuts');
+	let topBtn              = document.getElementById('top-btn');
 
 	// Anchors and infos in quran
 	// let verseAnchors        = document.querySelectorAll('.vn');
@@ -45,18 +45,18 @@ window.onload = ()=>{
 	let pageAnchors         = document.querySelectorAll('.pa');
 	let pageInfoBtns        = document.querySelectorAll('.ib');
 	let pageInfos           = document.querySelectorAll('.pi');
-	// let suraShortcuts       = document.querySelectorAll('#sura_shortcuts li');
+	// let suraShortcuts       = document.querySelectorAll('#sura-shortcuts li');
 
 	// Labels
-	let bgColorListLabel    = document.getElementById('bg_color_list_label');
-	let colorListLabel      = document.getElementById('color_list_label');
-	let fontFamilyListLabel = document.getElementById('font_family_list_label');
-	let fontSizeListLabel   = document.getElementById('font_size_list_label');
-	let juzListLabel        = document.getElementById('juz_list_label');
-	let languageListLabel   = document.getElementById('language_list_label');
-	let pageInputLabel      = document.getElementById('page_input_label');
-	let suraListLabel       = document.getElementById('sura_list_label');
-	let suraShortcutsLabel  = document.getElementById('sura_shortcuts_label');
+	let bgColorListLabel    = document.getElementById('bg-color-list-label');
+	let colorListLabel      = document.getElementById('color-list-label');
+	let fontFamilyListLabel = document.getElementById('font-family-list-label');
+	let fontSizeListLabel   = document.getElementById('font-size-list-label');
+	let juzListLabel        = document.getElementById('juz-list-label');
+	let languageListLabel   = document.getElementById('language-list-label');
+	let pageInputLabel      = document.getElementById('page-input-label');
+	let suraListLabel       = document.getElementById('sura-list-label');
+	let suraShortcutsLabel  = document.getElementById('sura-shortcuts-label');
 
 	const bookmarks         = [];
 
@@ -351,7 +351,7 @@ window.onload = ()=>{
 	function fillShortcuts(language)
 	{
 		let listElement = suraShortcutList
-		let listItems   = translations[language]['sura_shortcuts']
+		let listItems   = translations[language]['sura-shortcuts']
 
 		// First remove list items before adding new ones
 		while(child = listElement.lastChild){listElement.removeChild(child)}
@@ -555,13 +555,13 @@ window.onload = ()=>{
 	function quranToTop()
 	{
 		closeNavs();
-		document.getElementById('quran_container').scrollIntoView();
+		document.getElementById('quran-container').scrollIntoView();
 	}
 
 	function quranToBottom()
 	{
 		closeNavs();
-		document.getElementById('quran_container').scrollIntoView({block:'end'});
+		document.getElementById('quran-container').scrollIntoView({block:'end'});
 	}
 
 	function suraToTop()

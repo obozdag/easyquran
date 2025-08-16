@@ -40,21 +40,22 @@
 			<p>quran.fklavye.net</p>
 		</div>
 	</div>
-	<nav id="nav_top">
-		<i id="open_nav_left" class="nav_top_btn rb-book-quran" title="Nav Left"></i>
-		<i id="program_info_btn" class="nav_top_btn rb-easyquran-solid" title="Program Info"></i>
-		<i id="top_btn" class="nav_top_btn rb-up" title="Top"></i>
-		<i id="bottom_btn" class="nav_top_btn rb-down" title="Bottom"></i>
-		<span><i id="bookmark_list_btn" class="nav_top_btn rb-bookmark" title="Bookmark"></i><span id="bookmark_container"></span></span>
-		<i id="open_nav_right" class="nav_top_btn rb-slider" title="Nav Right"></i>
+	<nav id="nav-top">
+		<i id="open-nav-left" class="nav-top-btn rb-book-quran" title="Nav Left"></i>
+		<i id="program-info-btn" class="nav-top-btn rb-easyquran-solid" title="Program Info"></i>
+		<i id="top-btn" class="nav-top-btn rb-up" title="Top"></i>
+		<i id="bottom-btn" class="nav-top-btn rb-down" title="Bottom"></i>
+		<span><i id="bookmark-list-btn" class="nav-top-btn rb-bookmark" title="Bookmark"></i><span id="bookmark-container"></span></span>
+		<i id="open-nav-right" class="nav-top-btn rb-slider" title="Nav Right"></i>
 	</nav>
-	<nav id="nav_left" class="nav-side">
-		<i class="close_btn right rb-circle-xmark" id="close_nav_left"></i>
+	<nav id="nav-left" class="nav-side">
+		<i class="close-btn right rb-circle-xmark" id="close-nav-left"></i>
 		<div class="settings">
+			<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
 			<div class="row">
-				<label id="sura_list_label"></label>
+				<label id="sura-list-label"></label>
 				<div class="flex">
-					<select id="sura_list" class="mr-1">
+					<select id="sura-list" class="mr-1">
 						<?php
 						// foreach ($rows_sura as $row):
 						// 	$id     = $row['id'];
@@ -64,67 +65,68 @@
 						// endforeach;
 						?>
 					</select>
-					<button type="button" class="btn btn_nav mr-1" id="sura_az_order" title="Order by Sura Name"><i class="rb-arrow-down-a-z"></i></button>
-					<button type="button" class="btn btn_nav" id="sura_id_order"><i class="rb-arrow-down-123" title="Order by Sura Number"></i></button>
+					<button type="button" class="btn btn-nav mr-1" id="sura-az-order" title="Order by Sura Name"><i class="rb-arrow-down-a-z"></i></button>
+					<button type="button" class="btn btn-nav" id="sura-id-order"><i class="rb-arrow-down-123" title="Order by Sura Number"></i></button>
 				</div>
 			</div>
 			<div class="row">
-				<label id="juz_list_label"></label>
-				<select id="juz_list">
+				<label id="juz-list-label"></label>
+				<select id="juz-list">
 					<option></option>
 				</select>
 			</div>
 			<div class="row">
-				<label id="page_input_label"></label>
-				<span class="goto_page_container">
-					<input type="text" id="page_no" size="3" min="0" max="604" maxlength="3" pattern="\d{1,3}" title="Sayfa numarası 0-604">
-					<button type="button" class="btn btn_nav" id="goto_page_btn"></button>
+				<label id="page-input-label"></label>
+				<span class="goto-page-container">
+					<input type="text" id="page-no" size="3" min="0" max="604" maxlength="3" pattern="\d{1,3}" title="Sayfa numarası 0-604">
+					<button type="button" class="btn btn-nav" id="goto-page-btn"></button>
 				</span>
 			</div>
-			<div class="row" id="sura_shortcuts_row">
-				<label id="sura_shortcuts_label"></label>
-				<div id="sura_shortcuts_container">
-					<ul id="sura_shortcuts">
+			<div class="row" id="sura-shortcuts-row">
+				<label id="sura-shortcuts-label"></label>
+				<div id="sura-shortcuts-container">
+					<ul id="sura-shortcuts">
 					</ul>
 				</div>
 			</div>
 		</div>
 	</nav>
-	<nav id="nav_right" class="nav-side">
-		<i class="close_btn left rb-circle-xmark" id="close_nav_right"></i>
-		<h4 id="settings_header"></h4>
+	<nav id="nav-right" class="nav-side">
+		<i class="close-btn left rb-circle-xmark" id="close-nav-right"></i>
+		<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
+		<h4 id="settings-header"></h4>
 		<div class="settings">
 			<div class="row">
-				<label id="font_family_list_label"></label>
-				<select id="font_family_list"></select>
+				<label id="font-family-list-label"></label>
+				<select id="font-family-list"></select>
 			</div>
 			<div class="row">
-				<label id="font_size_list_label"></label>
-				<select id="font_size_list"></select>
+				<label id="font-size-list-label"></label>
+				<select id="font-size-list"></select>
 			</div>
 			<div class="row">
-				<label id="color_list_label"></label>
-				<select id="color_list"></select>
+				<label id="color-list-label"></label>
+				<select id="color-list"></select>
 			</div>
 			<div class="row">
-				<label id="bg_color_list_label"></label>
-				<select id="bg_color_list"></select>
+				<label id="bg-color-list-label"></label>
+				<select id="bg-color-list"></select>
 			</div>
 			<div class="row">
-				<label id="language_list_label"></label>
-				<select id="language_list"></select>
+				<label id="language-list-label"></label>
+				<select id="language-list"></select>
 			</div>
 			<div class="row">
 				<label></label>
-				<button type="button" class="btn btn_nav" id="reset_btn"></button>
+				<button type="button" class="btn btn-nav" id="reset-btn"></button>
 			</div>
-			<div id="nav_loading" class="nav-loading">
-				<p id="settings_message"></p>
+			<div id="nav-loading" class="nav-loading">
+				<p id="settings-message"></p>
 			</div>
 		</div>
 	</nav>
-	<div class="container" id="quran_container">
-		<div id="quran_verses" class="arabic">
+	<div class="container" id="quran-container">
+		<div id="quran-verses" class="arabic">
 		<?php	foreach($rows_verse as $row): ?>
 		<?php
 			$page        = $row['page'];
@@ -165,26 +167,26 @@
 		<?php	endforeach; ?>
 			</section>
 		</div>
-		<div class="overlay" id="program_info_popup">
+		<div class="overlay" id="program-info-popup">
 			<div class="popup">
-				<i id="program_info_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
-				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
-				<div id="program_info_content"></div>
+				<i id="program-info-popup-close-btn" class="close-btn right rb-circle-xmark"></i>
+				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name.' '.$version ?></h3>
+				<div id="program-info-content"></div>
 			</div>
 		</div>
-		<div class="overlay" id="bookmark_list_popup">
+		<div class="overlay" id="bookmark-list-popup">
 			<div class="popup">
-				<i id="bookmark_list_popup_close_btn" class="close_btn right rb-circle-xmark"></i>
+				<i id="bookmark-list-popup-close-btn" class="close-btn right rb-circle-xmark"></i>
 				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
-				<h4 id="bookmark_list_header">Bookmark List</h4>
-				<div id="bookmark_list_content"></div>
+				<h4 id="bookmark-list-header">Bookmark List</h4>
+				<div id="bookmark-list-content"></div>
 			</div>
 		</div>
 	</div>
 	<footer>
 		<a target="_blank" href="https://github.com/obozdag/easyquran">
 			<i class="logo rb-easyquran-solid" title="<?= $prg_name ?>"></i>
-			 <?= $prg_name.' '.$version ?>
+			 <?= $prg_name ?>
 	</footer>
 </body>
 </html>

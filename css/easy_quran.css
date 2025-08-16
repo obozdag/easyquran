@@ -72,7 +72,7 @@ i {
 	direction: rtl;
 	padding: var(--nth) 5px;
 }
-#nav_top {
+#nav-top {
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
@@ -107,7 +107,7 @@ i {
 	font-size: var(--set-font-size);
 	color: var(--ac);
 }
-#nav_left, #nav_right {
+#nav-left, #nav-right {
 	position: fixed;
 	top: var(--nth);
 	bottom: 0;
@@ -122,18 +122,18 @@ i {
 	z-index: 100;
 	transition: .5s;
 }
-#nav_left {
+#nav-left {
 	left: -75%;
 	border-top-right-radius: var(--brs);
 }
-#nav_right {
+#nav-right {
 	right: -75%;
 	border-top-left-radius: var(--brs);
 }
-#nav_left.open {
+#nav-left.open {
 	left: 0;
 }
-#nav_right.open {
+#nav-right.open {
 	right: 0;
 }
 .close-btn {
@@ -181,30 +181,30 @@ i {
 	text-align: right;
 	line-height: 2rem;
 }
-#settings_header {
+#settings-header {
 	margin-bottom: 1rem;
 	padding: .5rem 1rem;
 	border-bottom: 1px solid rgba(200, 200, 200, .5);
 	text-align: center;
 	font-size: 1.2rem;
 }
-#settings_message {
+#settings-message {
 	display: block;
 	text-align: center;
 }
-#sura_shortcuts_row {
+#sura-shortcuts-row {
 	overflow-y: auto;
 }
-#sura_shortcuts_container {
+#sura-shortcuts-container {
 	padding: 5px;
 	overflow-y: auto;
 	border: 1px solid rgba(200, 200, 200, .5);
 }
-#sura_shortcuts li {
+#sura-shortcuts li {
 	margin-bottom: 2rem;
 	cursor: pointer;
 }
-.goto_page_container {
+.goto-page-container {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	grid-gap: 5px;
@@ -241,7 +241,7 @@ i {
 	color: var(--set-color);
 	background-color: white;
 }
-#bookmark_list_btn {
+#bookmark-list-btn {
 	margin-right: 1rem;
 	cursor: pointer;
 }
@@ -328,7 +328,7 @@ i {
 	background-color: white;
 	border-radius: var(--brs);
 }
-#program_info_content {
+#program-info-content {
 	max-height: 70vh;
 	margin-top: 1rem;
 	overflow-y: auto;
@@ -421,7 +421,7 @@ footer a {
 .icons .icon {
 	text-align: right;
 }
-#reset_btn {
+#reset-btn {
 	width: 80px;
 	justify-self: end;
 }
@@ -436,7 +436,7 @@ footer a {
 	.pip {
 		break-before: page;
 	}
-	#nav_top {
+	#nav-top {
 		display: none;
 	}
 }
