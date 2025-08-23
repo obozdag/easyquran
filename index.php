@@ -32,8 +32,8 @@
 	<script src="/app.js"></script>
 </head>
 <body>
-	<div id="loading_overlay">
-		<div id="loading_content">
+	<div id="loading-overlay">
+		<div id="loading-content">
 			<h3>Easy Quran</h3>
 			<p><img src="/css/icons/loading.gif"></p>
 			<p>Loading...</p>

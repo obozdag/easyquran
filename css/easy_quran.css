@@ -379,7 +379,7 @@ footer a {
 	vertical-align: middle;
 	line-height: 2;
 }
-#loading_overlay {
+#loading-overlay {
 	display: block;
 	position: fixed;
 	top: 0;
@@ -392,7 +392,7 @@ footer a {
 	visibility: visible;
 	transition: 1s;
 }
-#loading_content {
+#loading-content {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -401,8 +401,8 @@ footer a {
 	color: white;
 	text-align: center;
 }
-#loading_content h3,
-#loading_content p
+#loading-content h3,
+#loading-content p
  {
 	margin-bottom: 1rem;
 }

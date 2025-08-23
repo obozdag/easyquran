@@ -17,7 +17,7 @@ window.onload = ()=>{
 	let gotoPageBtn         = document.getElementById('goto-page-btn');
 	let juzList             = document.getElementById('juz-list');
 	let languageList        = document.getElementById('language-list');
-	let loadingOverlay      = document.getElementById('loading_overlay');
+	let loadingOverlay      = document.getElementById('loading-overlay');
 	let navLeft             = document.getElementById('nav-left');
 	let navLoading          = document.getElementById('nav-loading');
 	let navRight            = document.getElementById('nav-right');
