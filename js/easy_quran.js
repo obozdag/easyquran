@@ -300,10 +300,11 @@ window.onload = ()=>{
 	function setLabels(language)
 	{
 		bgColorListLabel.textContent    = translations[language][bgColorListLabel.id];
-		bookmarkListHeader.textContent  = translations[language][bookmarkListHeader.id];
 		colorListLabel.textContent      = translations[language][colorListLabel.id];
 		fontFamilyListLabel.textContent = translations[language][fontFamilyListLabel.id];
 		fontSizeListLabel.textContent   = translations[language][fontSizeListLabel.id];
+
+		bookmarkListHeader.textContent  = translations[language][bookmarkListHeader.id];
 		gotoPageBtn.textContent         = translations[language][gotoPageBtn.id];
 		juzListLabel.textContent        = translations[language][juzListLabel.id];
 		languageListLabel.textContent   = translations[language][languageListLabel.id];
@@ -322,6 +323,7 @@ window.onload = ()=>{
 		createOptions(colorList, colors, defaultColor);
 		createOptions(bgColorList, bgColors, defaultBgColor);
 		createOptions(languageList, languages, defaultLanguage);
+
 		createOptions(juzList, ajza, null);
 	}
 
