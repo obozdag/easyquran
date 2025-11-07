@@ -1,4 +1,4 @@
-// $version     = 'v1.93.19';
+// $version     = 'v1.94';
 var version
 var staticContentToCache = [
 	'app.js',

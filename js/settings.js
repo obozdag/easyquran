@@ -2,6 +2,7 @@ defaultBgColor    = 'cornsilk';
 defaultColor      = 'brown';
 defaultFontFamily = 'EasyArabic';
 defaultFontSize   = '36px';
+bookmarksLength   = 5;
 
 languages = {
 	'tr' : 'Türkçe',

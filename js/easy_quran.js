@@ -58,8 +58,10 @@ window.onload = ()=>{
 	let suraListLabel       = document.getElementById('sura-list-label');
 	let suraShortcutsLabel  = document.getElementById('sura-shortcuts-label');
 
-	const bookmarks         = [];
+	const navs              = [navLeft, navRight, programInfoPopup, bookmarkListPopup];
+	let bookmarks           = bookmarksRead();
 
+	
 	loading(false);
 
 	// Set current language first
@@ -112,27 +114,25 @@ window.onload = ()=>{
 		let jaLength = juzAnchors.length
 		for(let i=0; i < jaLength; i++)
 		{
-			juzAnchors[i].addEventListener('click', addBookmark, false);
+			juzAnchors[i].addEventListener('click', bookmarkAdd, false);
 		}
 
 		// Page anchors
 		let paLength = pageAnchors.length
 		for(let i=0; i < paLength; i++)
 		{
-			pageAnchors[i].addEventListener('click', addBookmark, false);
+			pageAnchors[i].addEventListener('click', bookmarkAdd, false);
 		}
 
 		// // Verse anchors
 		// let vaLength = verseAnchors.length
 		// for(let i=0; i < vaLength; i++)
 		// {
-		// 	verseAnchors[i].addEventListener('click', addBookmark, false);
+		// 	verseAnchors[i].addEventListener('click', bookmarkAdd, false);
 		// }
 
 		// Font family List
-		fontFamilyList.addEventListener('change', ()=>{
-			setFontFamily(fontFamilyList.value);
-		});
+		fontFamilyList.addEventListener('change', ()=>{setFontFamily(fontFamilyList.value);});
 
 		// Font size list
 		fontSizeList.addEventListener('change', (e)=>{
@@ -176,13 +176,13 @@ window.onload = ()=>{
 
 		// Program info
 		programInfoPopup.addEventListener('click', closeProgramInfoPopup);
-		programInfoBtn.addEventListener('click', openProgramInfoPopup);
+		programInfoBtn.addEventListener('click', function(e){openProgramInfoPopup(programInfoPopup)});
 		programInfoPopupCloseBtn.addEventListener('click', closeProgramInfoPopup);
 
 		// Bookmark list
-		bookmarkListPopup.addEventListener('click', closeBookmarkListPopup);
-		bookmarkListBtn.addEventListener('click', openBookmarkListPopup);
-		bookmarkListPopupCloseBtn.addEventListener('click', closeBookmarkListPopup);
+		bookmarkListPopup.addEventListener('click', bookmarkListPopupClose);
+		bookmarkListBtn.addEventListener('click', bookmarkListPopupOpen);
+		bookmarkListPopupCloseBtn.addEventListener('click', bookmarkListPopupClose);
 
 		// Clean bookmark
 		// bookmarkIcon.addEventListener('click', removeBookmark);
@@ -204,14 +204,11 @@ window.onload = ()=>{
 
 	function restoreSettings()
 	{
-		// Restore bookmark
-		if (localStorage.getItem('bookmarkTarget'))
+		// Restore bookmarks
+		if (localStorage.getItem('bookmarks'))
 		{
-			bookmarkTarget = localStorage.getItem('bookmarkTarget');
-			bookmarkLabel  = localStorage.getItem('bookmarkLabel');
-			bookmarkType   = localStorage.getItem('bookmarkType');
-			setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType);
-			gotoBookmark(bookmarkTarget);
+			fillBookmarkList();
+			if(bookmarks[0]?.target) gotoBookmark(bookmarks[0].target);
 		}
 
 		// Restore language
@@ -368,52 +365,91 @@ window.onload = ()=>{
 		}
 	}
 
-	function addBookmark()
+	function bookmarksRead()
 	{
-		bookmarkTarget = this.id;
-		firstLetter    = bookmarkTarget.substr(0,1)
-		switch (firstLetter)
-		{
-			case 'p':
-				bookmarkType = 'page'
-				break
-			case 'j':
-				bookmarkType = 'juz'
-				break
-			// case 'v':
-			// 	bookmarkType = 'verse'
-			// 	break
-			default:
-				bookmarkType = 'page'
-		}
-		bookmarkLabel  = bookmarkTarget.startsWith('v') ? this.dataset.label : this.textContent;
-		setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType);
-		bookmarks.push({bookmarkTarget: bookmarkTarget, bookmarkLabel: bookmarkLabel, bookmarkType: bookmarkType});
-		localStorage.setItem('bookmarkTarget', bookmarkTarget);
-		localStorage.setItem('bookmarkLabel', bookmarkLabel);
-		localStorage.setItem('bookmarkType', bookmarkType);
+		const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || []
+		return bookmarks
+	}
+
+	function bookmarksStore(bookmarks)
+	{
 		localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 	}
 
-	function setBookmark(bookmarkTarget, bookmarkLabel, bookmarkType)
+	async function fillBookmarkList()
 	{
-		bookmark = document.getElementById('bookmark');
-		if(bookmark) bookmark.remove();
+		let bookmarkElement
+		let bookmarkListItem
 
-		newBookmark                = document.createElement('span');
-		newBookmark.id             = 'bookmark';
-		newBookmark.dataset.target = bookmarkTarget;
-		newBookmark.dataset.type   = bookmarkType;
-		newBookmarkLabel           = document.createTextNode(bookmarkLabel);
-		newBookmark.appendChild(newBookmarkLabel);
-		newBookmark.addEventListener('click', ()=>{gotoBookmark(bookmarkTarget, bookmarkType)});
-		bookmarkContainer.appendChild(newBookmark);
+		bookmarkContainer.innerHTML = null
+		bookmarkListContent.innerHTML = null
+		const bookmarks = bookmarksRead()
+		bookmarks.forEach(function(bookmark){
+				bookmarkElement = bookmarkElementCreate(bookmark)
+				bookmarkListItem = document.createElement('li')
+				bookmarkListItem.appendChild(bookmarkElement)
+				bookmarkListContent.appendChild(bookmarkListItem)
+			}
+		)
+		bookmarkContainer.appendChild(bookmarkElement.cloneNode(true));
 	}
 
-	function gotoBookmark(bookmarkTarget, bookmarkType = "page")
+	function bookmarkAdd()
+	{
+		let type = 'page';
+		const target = this.id;
+		const firstLetter = target.substr(0,1)
+		switch (firstLetter)
+		{
+			case 'p':
+				type = 'page'
+				break
+			case 'j':
+				type = 'juz'
+				break
+		}
+		const label  = target.startsWith('v') ? this.dataset.label : this.textContent;
+		const bookmark = {target: target, label: label, type: type};
+
+		bookmarkPush(bookmark);
+		fillBookmarkList();
+	}
+
+	function bookmarkPush(bookmark)
+	{
+		const bookmarks = bookmarksRead()
+		if(bookmarks.length > 0 && bookmarks[bookmarks.length - 1].target === bookmark.target)
+		   return;
+
+		bookmarks.push(bookmark)
+
+		if(bookmarks.length > bookmarksLength)
+			bookmarks.shift()
+
+		bookmarksStore(bookmarks)
+	}
+
+	function bookmarkElementCreate(bookmark)
+	{
+		oldBookmark = document.getElementById('bookmark-' + bookmark.target);
+		if(oldBookmark) oldBookmark.remove();
+
+		bookmarkElement                = document.createElement('span');
+		// bookmarkElement.id             = 'bookmark-' + bookmark.target;
+		bookmarkElement.className      = 'bookmark';
+		bookmarkElement.dataset.target = bookmark.target;
+		bookmarkElement.dataset.type   = bookmark.type;
+		bookmarkElement.textContent    = bookmark.label;
+
+		bookmarkElement.addEventListener('click', () => {gotoBookmark(bookmark.target)});
+
+		return bookmarkElement;
+	}
+
+	function gotoBookmark(target)
 	{
 		closeNavs();
-		document.getElementById(bookmarkTarget).scrollIntoView();
+		document.getElementById(target).scrollIntoView();
 
 		// if (bookmarkType == 'verse')
 		// {
@@ -425,21 +461,26 @@ window.onload = ()=>{
 		// }
 	}
 
-	function removeBookmark()
+	function bookmarksRemove()
 	{
-		let bookmark = document.getElementById('bookmark');
-
-		if (bookmark)
+		let answer = confirm(translations[currentLanguage]['confirm_delete_bookmark']);
+		if (answer)
 		{
-			let answer = confirm(translations[currentLanguage]['confirm_delete_bookmark']);
-			if (answer)
-			{
-				bookmark.remove();
-				localStorage.removeItem('bookmarkTarget');
-				localStorage.removeItem('bookmarkLabel');
-				localStorage.removeItem('bookmarkType');
-			}
+			localStorage.removeItem('bookmarks')
+			fillBookmarkList()
 		}
+	}
+
+	async function bookmarkListPopupOpen()
+	{
+		closeNavs();
+		bookmarkListPopup.classList.toggle('open');
+	}
+
+	function bookmarkListPopupClose()
+	{
+		closeNavs();
+		// bookmarkListPopup.classList.remove('open');
 	}
 
 	function settingLoading(showLoading)
@@ -475,11 +516,14 @@ window.onload = ()=>{
 		}
 	}
 
-	function closeNavs()
+	function toggleWindow(id)
 	{
-		bookmarkListPopup.classList.remove('open');
+
+	}
+	function closeNavs() {
 		navLeft.classList.remove('open');
 		navRight.classList.remove('open');
+		bookmarkListPopup.classList.remove('open');
 		programInfoPopup.classList.remove('open');
 	}
 
@@ -495,10 +539,11 @@ window.onload = ()=>{
 
 	function openNavLeft()
 	{
-		bookmarkListPopup.classList.remove('open');
+		closeNavs();
+		// bookmarkListPopup.classList.remove('open');
 		navLeft.classList.toggle('open');
-		navRight.classList.remove('open');
-		programInfoPopup.classList.remove('open');
+		// navRight.classList.remove('open');
+		// programInfoPopup.classList.remove('open');
 	}
 
 	function openNavRight()
@@ -509,10 +554,10 @@ window.onload = ()=>{
 		programInfoPopup.classList.remove('open');
 	}
 
-	async function openProgramInfoPopup()
+	async function openProgramInfoPopup(e)
 	{
-		navLeft.classList.remove('open');
-		navRight.classList.remove('open');
+		console.log(e.target)
+		closeNavs();
 		programInfoContent.innerHTML = await fetchLangHTML(currentLanguage, 'program_info')
 		programInfoPopup.classList.toggle('open');
 	}
@@ -528,30 +573,6 @@ window.onload = ()=>{
 	function closeProgramInfoPopup()
 	{
 		programInfoPopup.classList.remove('open');
-	}
-
-	async function openBookmarkListPopup()
-	{
-		navLeft.classList.remove('open');
-		navRight.classList.remove('open');
-		bookmarkListContent.innerHTML = await fillBookmarkList()
-		bookmarkListPopup.classList.toggle('open');
-	}
-
-	async function fillBookmarkList()
-	{
-		let result = ''
-		let bookmarkTarget = localStorage.getItem('bookmarkTarget')
-		// await fetch(path).then(data=>data.text()).then(html=>{
-		// 	result = html
-		// })
-		result = bookmarkTarget;
-		return result
-	}
-
-	function closeBookmarkListPopup()
-	{
-		bookmarkListPopup.classList.remove('open');
 	}
 
 	function quranToTop()

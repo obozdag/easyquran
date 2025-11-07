@@ -14,26 +14,33 @@
 	--theme-color: teal; /* application theme color */
 	--sajdah-content: teal; /* application theme color */
 }
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
 html {
 	font-size: 16px;
 	font-family: sans-serif;
 	/*scroll-behavior: smooth;*/
 }
+
 body {
 	height: 100dvh;
 }
+
 ul {
 	list-style: none;
 }
+
 i {
 	font-style: normal;
 }
+
 .flex {display: flex; justify-content: space-between;}
+
 .btn {
 	padding: 2px 6px;
 	background-color: transparent;
@@ -47,20 +54,25 @@ i {
 	cursor: pointer;
 	user-select: none;
 	outline: none;
+	max-width: 100px;
 }
+
 .btn-secondary {
 	color: gray;
 	border: 1px solid gray;
 }
+
 .secondary {
 	color: gray;
 }
+
 .container {
 	position: relative;
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
 }
+
 .arabic {
 	text-align: justify;
 	font-family: var(--set-font-family);
@@ -72,6 +84,7 @@ i {
 	direction: rtl;
 	padding: var(--nth) 5px;
 }
+
 #nav-top {
 	position: fixed;
 	display: flex;
@@ -87,26 +100,31 @@ i {
 	color: white;
 	z-index: 1;
 }
+
 .nav-top-btn {
 	color: white;
 	cursor: pointer;
 	z-index: 100;
 }
+
 .sajdah {
 	font-family: var(--set-font-family);
 	color: var(--set-color);
 }
+
 .sajdah:after {
 	content: "\f86b";
 	font-family: var(--icon-font-family);
 	margin-right: 5px;
 	display: inline-block;
 }
+
 .basmala {
 	font-family: var(--set-font-family);
 	font-size: var(--set-font-size);
 	color: var(--ac);
 }
+
 #nav-left, #nav-right {
 	position: fixed;
 	top: var(--nth);
@@ -122,51 +140,64 @@ i {
 	z-index: 100;
 	transition: .5s;
 }
+
 #nav-left {
 	left: -75%;
 	border-top-right-radius: var(--brs);
 }
+
 #nav-right {
 	right: -75%;
 	border-top-left-radius: var(--brs);
 }
+
 #nav-left.open {
 	left: 0;
 }
+
 #nav-right.open {
 	right: 0;
 }
+
 .close-btn {
 	position: absolute;
 	top: 10px;
 	cursor: pointer;
 }
+
 .close-btn.right {
 	right: 10px;
 }
+
 .close-btn.left {
 	left: 10px;
 }
+
 .close-btn:hover {
 	color: var(--theme-color);
 }
+
 .text-right {
 	text-align: right;
 }
+
 .text-center {
 	text-align: center;
 }
+
 .settings {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
+
 .settings .row {
 	display: grid;
 	grid-template-columns: 30% 65%;
 	grid-gap: 5px;
 	margin-bottom: 1rem;
 }
+
 .settings input,
 .settings select {
 	width: 100%;
@@ -177,10 +208,12 @@ i {
 	font-size: 1rem;
 	outline: none;
 }
+
 .settings label {
 	text-align: right;
 	line-height: 2rem;
 }
+
 #settings-header {
 	margin-bottom: 1rem;
 	padding: .5rem 1rem;
@@ -188,28 +221,34 @@ i {
 	text-align: center;
 	font-size: 1.2rem;
 }
+
 #settings-message {
 	display: block;
 	text-align: center;
 }
+
 #sura-shortcuts-row {
 	overflow-y: auto;
 }
+
 #sura-shortcuts-container {
 	padding: 5px;
 	overflow-y: auto;
 	border: 1px solid rgba(200, 200, 200, .5);
 }
+
 #sura-shortcuts li {
 	margin-bottom: 2rem;
 	cursor: pointer;
 }
+
 .goto-page-container {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	grid-gap: 5px;
 	align-items: center;
 }
+
 .btn-nav {
 	height: 2rem;
 	color: white;
@@ -219,32 +258,39 @@ i {
 	user-select: none;
 	outline: none;
 }
+
 .btn-nav:hover {
 	color: var(--set-color);
 	background-color: white;
 }
+
 .hidden {
 	visibility: hidden;
 }
+
 .visible {
 	visibility: visible;
 }
+
 /*Page bookmark*/
-#bookmark {
+.bookmark {
 	padding: 2px 6px;
 	color: white;
 	border: 1px solid rgba(255, 255, 255, 0.8);
 	border-radius: var(--brs);
 	cursor: pointer;
 }
-#bookmark:hover {
+
+.bookmark:hover {
 	color: var(--set-color);
 	background-color: white;
 }
+
 #bookmark-list-btn {
 	margin-right: 1rem;
 	cursor: pointer;
 }
+
 /*Sura names*/
 .sn {
 	margin-top: 1rem;
@@ -255,6 +301,7 @@ i {
 	page-break-inside: avoid;
 	direction: ltr;
 }
+
 /*Verse numbers*/
 .vn {
 	font-family: var(--icon-font-family), sans-serif;
@@ -262,6 +309,7 @@ i {
 	color: var(--set-color);
 	cursor: pointer;
 }
+
 /*Page info paragraph*/
 .pip {
 	display: flex;
@@ -271,6 +319,7 @@ i {
 	color: gray;
 	direction: ltr;
 }
+
 /*Juz anchor button*/
 /*Page anchor button*/
 .ca, .pa, .ib {
@@ -283,25 +332,31 @@ i {
 	user-select: none;
 	outline: none;
 }
+
 .ca:hover, .pa:hover {
 	color: var(--set-color);
 	border-color: var(--set-color);
 }
+
 /*Page info button*/
 .ib {
 	border: none;
 }
+
 .ib:hover {
 	color: var(--set-color);
 }
+
 .ib.open + .pi{
 	display: inline;
 }
+
 /*Page info*/
 .pi {
 	display: none;
 	transition: width .5s;
 }
+
 .overlay {
 	display: none;
 	position: fixed;
@@ -312,13 +367,16 @@ i {
 	background: rgba(0, 0, 0, .7);
 	opacity: 0;
 }
+
 #close_popup_btn:hover {
 	color: var(--set-color);
 }
+
 .overlay.open {
 	display: block;
 	opacity: 1;
 }
+
 .popup {
 	position: relative;
 	width: 80%;
@@ -328,31 +386,38 @@ i {
 	background-color: white;
 	border-radius: var(--brs);
 }
+
 #program-info-content {
 	max-height: 70vh;
 	margin-top: 1rem;
 	overflow-y: auto;
 }
+
 .popup h3, .popup h4 {
 	margin: 1em 0;
 	color: var(--set-color);
 }
+
 .popup p {
 	margin-bottom: 1rem;
 }
+
 .popup a {
 	text-decoration: none;
 }
+
 .ul {
 	margin: 1rem 0;
 	padding-left: 2rem;
 	list-style-type: disc;
 	color: var(--set-color);
 }
+
 .ul li {
 	margin-bottom: .8rem;
 	line-height: 1.4;
 }
+
 footer {
 	display: flex;
 	justify-content: center;
@@ -366,10 +431,12 @@ footer {
 	font-family: sans-serif;
 	text-align: center;
 }
+
 footer a {
 	text-decoration: none;
 	color: white;
 }
+
 .logo {
 	padding: 5px;
 	background-color: var(--nsbc);
@@ -379,6 +446,7 @@ footer a {
 	vertical-align: middle;
 	line-height: 2;
 }
+
 #loading-overlay {
 	display: block;
 	position: fixed;
@@ -392,6 +460,7 @@ footer a {
 	visibility: visible;
 	transition: 1s;
 }
+
 #loading-content {
 	position: relative;
 	display: flex;
@@ -401,42 +470,68 @@ footer a {
 	color: white;
 	text-align: center;
 }
+
 #loading-content h3,
 #loading-content p
  {
 	margin-bottom: 1rem;
 }
+
 .mr-1 {
 	margin-right: 5px;
 }
+
 .icons {
 	list-style: none;
 	padding: 0;
 }
+
 .icons li {
 	display: grid;
 	grid-template-columns: 60px 1fr;
 	grid-gap: 1rem;
 }
+
 .icons .icon {
 	text-align: right;
 }
+
 #reset-btn {
 	width: 80px;
 	justify-self: end;
 }
+
 @media print {
 	.container {
 		display: block;
 		border: none;
 	}
+
 	.arabic {
 		margin-bottom: 1rem;
 	}
+
 	.pip {
 		break-before: page;
 	}
+
 	#nav-top {
 		display: none;
 	}
+
+}
+
+#bookmark-list-content {
+	margin: 0 0 1em 1em;
+}
+
+#bookmark-list-content li {
+	margin-bottom: 1em;
+	color: var(--set-color);
+}
+
+#bookmark-list-content .bookmark {
+	margin-bottom: 1em;
+	color: var(--set-color);
+	border-color: var(--set-color);
 }

@@ -1,6 +1,6 @@
 <?php
 	$prg_name    = 'Easy Quran';
-	$version     = 'v1.93.18';
+	$version     = 'v1.94';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');
@@ -45,7 +45,10 @@
 		<i id="program-info-btn" class="nav-top-btn rb-easyquran-solid" title="Program Info"></i>
 		<i id="top-btn" class="nav-top-btn rb-up" title="Top"></i>
 		<i id="bottom-btn" class="nav-top-btn rb-down" title="Bottom"></i>
-		<span><i id="bookmark-list-btn" class="nav-top-btn rb-bookmark" title="Bookmark"></i><span id="bookmark-container"></span></span>
+		<span>
+			<i id="bookmark-list-btn" class="nav-top-btn rb-bookmark" title="Bookmark"></i>
+			<span id="bookmark-container"></span>
+		</span>
 		<i id="open-nav-right" class="nav-top-btn rb-slider" title="Nav Right"></i>
 	</nav>
 	<nav id="nav-left" class="nav-side">
@@ -179,7 +182,7 @@
 				<i id="bookmark-list-popup-close-btn" class="close-btn right rb-circle-xmark"></i>
 				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
 				<h4 id="bookmark-list-header">Bookmark List</h4>
-				<div id="bookmark-list-content"></div>
+				<ul id="bookmark-list-content"></ul>
 			</div>
 		</div>
 	</div>
