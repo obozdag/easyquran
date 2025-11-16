@@ -27,7 +27,7 @@
 	</script>
 	<script src="/js/swipe.js"></script>
 	<script src="/js/lang.js"></script>
-	<script src="/js/settings.js"></script>
+	<script src="/js/defaults.js"></script>
 	<script src="/js/easy_quran.js"></script>
 	<script src="/app.js"></script>
 </head>
