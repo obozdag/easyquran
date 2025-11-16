@@ -1,6 +1,6 @@
 <?php
 	$prg_name    = 'Easy Quran';
-	$version     = 'v1.94';
+	$version     = 'v1.94.01';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');

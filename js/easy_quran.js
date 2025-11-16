@@ -307,15 +307,21 @@ window.onload = () => {
     bookmarkListContent.innerHTML   = null;
     const bookmarks                 = bookmarksRead();
     let bookmarkElement;
+    let bookmarkTarget;
 
     bookmarks.forEach(function(bookmark) {
+      bookmarkTarget       = bookmark.target;
       bookmarkElement      = bookmarkElementCreate(bookmark);
       let bookmarkListItem = document.createElement('li');
       bookmarkListItem.appendChild(bookmarkElement);
       bookmarkListContent.appendChild(bookmarkListItem);
     });
 
-    if (bookmarkElement) bookmarkContainer.appendChild(bookmarkElement.cloneNode(true));
+    if (bookmarkElement) {
+      const bookmarkButton = bookmarkElement.cloneNode(true);
+      bookmarkButton.addEventListener('click', () => { gotoBookmark(bookmarkTarget); });
+      bookmarkContainer.appendChild(bookmarkButton);
+    }
   }
 
   function bookmarkAdd() {

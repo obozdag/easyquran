@@ -1,81 +1,52 @@
-defaultBgColor    = 'cornsilk';
-defaultColor      = 'brown';
-defaultFontFamily = 'EasyArabic';
-defaultFontSize   = '36px';
-bookmarksLength   = 5;
+import { closeNavs } from './navigation.js';
+import { createOptions } from './utils.js';
 
-languages = {
-	'tr' : 'Türkçe',
-	'en' : 'English',
-};
+export function initSettings(elements) {
+  const { languageList, bgColorList, colorList, fontFamilyList, fontSizeList } = elements;
 
-ajza = {}; for(i=1; i<=30;i++){ajza['j'+i] = i;};
+  languageList.addEventListener('change', () => setLanguage(languageList.value));
+  bgColorList.addEventListener('change', () => setBgColor(bgColorList.value));
+  colorList.addEventListener('change', () => setColor(colorList.value));
+  fontFamilyList.addEventListener('change', () => setFontFamily(fontFamilyList.value));
+  fontSizeList.addEventListener('change', () => setFontSize(fontSizeList.value));
+}
 
-fontSizes = {}; for(i=16; i<=64;i+=2){fontSizes[i+'px'] = i;};
+export function restoreSettings(elements) {
+  const { languageList, bgColorList, colorList, fontFamilyList, fontSizeList } = elements;
 
-fontFamilies  = {
-	'EasyArabic' : 'EasyArabic',
-	'Lateef' : 'Lateef',
-};
+  if (localStorage.getItem('language')) setLanguage(localStorage.getItem('language'));
+  if (localStorage.getItem('bgColor')) setBgColor(localStorage.getItem('bgColor'));
+  if (localStorage.getItem('color')) setColor(localStorage.getItem('color'));
+  if (localStorage.getItem('fontFamily')) setFontFamily(localStorage.getItem('fontFamily'));
+  if (localStorage.getItem('fontSize')) setFontSize(localStorage.getItem('fontSize'));
+}
 
-colors = {
-	'brown'          : 'Brown',
-	'cadetblue'      : 'Cadetblue',
-	'chocolate'      : 'Chocolate',
-	'coral'          : 'Coral',
-	'cornflowerblue' : 'Cornflowerblue',
-	'crimson'        : 'Crimson',
-	'darkblue'       : 'Darkblue',
-	'darkcyan'       : 'Darkcyan',
-	'darkgoldenrod'  : 'Darkgoldenrod',
-	'darkmagenta'    : 'Darkmagenta',
-	'darkolivegreen' : 'Darkolivegreen',
-	'darkorange'     : 'Darkorange',
-	'darkred'        : 'Darkred',
-	'darkslategray'  : 'Darkslategray',
-	'deeppink'       : 'Deeppink',
-	'midnightblue'   : 'Midnightblue',
-	'orangered'      : 'Orangered',
-	'red'            : 'Red',
-	'royalblue'      : 'Royalblue',
-	'seagreen'       : 'Seagreen',
-	'steelblue'      : 'Steelblue',
-	'teal'           : 'Teal',
-	'#3a86ff'        : 'Nylonblue',
-	'#863dec'        : 'Overreact',
-	'#ff006e'        : 'Respark',
-	'#00b4be'        : 'Babeblue',
-	'#c77dff'        : 'Venomoth',
-	'#f160b7'        : 'Heavenlylove',
-	'#00b7f4'        : 'Summervacation',
-	'#00f5d4'        : 'Sunshinyblue',
-};
+export function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('language', lang);
+  closeNavs();
+}
 
-bgColors = {
-	'cornsilk'       : 'Cornsilk',
-	'floralwhite'    : 'Floralwhite',
-	'ghostwhite'     : 'Ghostwhite',
-	'honeydew'       : 'Honeydew',
-	'ivory'          : 'Ivory',
-	'khaki'          : 'Khaki',
-	'lavender'       : 'Lavender',
-	'lavenderblush'  : 'Lavenderblush',
-	'lemonchiffon'   : 'Lemonchiffon',
-	'lightblue'      : 'Lightblue',
-	'lightcyan'      : 'Lightcyan',
-	'lightpink'      : 'Lightpink',
-	'lightskyblue'   : 'Lightskyblue',
-	'lightyellow'    : 'Lightyellow',
-	'linen'          : 'Linen',
-	'mintcream'      : 'Mintcream',
-	'seashell'       : 'Seashell',
-	'white'          : 'White',
-	'#3a86ff'        : 'Nylonblue',
-	'#863dec'        : 'Overreact',
-	'#ff006e'        : 'Respark',
-	'#00b4be'        : 'Babeblue',
-	'#c77dff'        : 'Venomoth',
-	'#f160b7'        : 'Heavenlylove',
-	'#00b7f4'        : 'Summervacation',
-	'#00f5d4'        : 'Sunshinyblue',
-};
+export function setBgColor(color) {
+  document.documentElement.style.setProperty('--set-bg-color', color);
+  color === defaultBgColor ? localStorage.removeItem('bgColor') : localStorage.setItem('bgColor', color);
+  closeNavs();
+}
+
+export function setColor(color) {
+  document.documentElement.style.setProperty('--set-color', color);
+  color === defaultColor ? localStorage.removeItem('color') : localStorage.setItem('color', color);
+  closeNavs();
+}
+
+export function setFontFamily(family) {
+  document.documentElement.style.setProperty('--set-font-family', family);
+  family === defaultFontFamily ? localStorage.removeItem('fontFamily') : localStorage.setItem('fontFamily', family);
+  closeNavs();
+}
+
+export function setFontSize(size) {
+  document.documentElement.style.setProperty('--set-font-size', size);
+  size === defaultFontSize ? localStorage.removeItem('fontSize') : localStorage.setItem('fontSize', size);
+  closeNavs();
+}
