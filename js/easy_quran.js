@@ -450,29 +450,151 @@ window.onload = () => {
 
   function closeProgramInfoPopup() { programInfoPopup.classList.remove('open'); }
 
-  function loading(show) { loadingOverlay.style.display = show ? 'block' : 'none'; }
-
-  function quranToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  function quranToBottom() { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
-
-  function juzToTop() {
-    let juz = juzList.value;
-    if (juz) document.getElementById('juz-' + juz).scrollIntoView({ behavior: 'smooth' });
+  function closeBookmarkListPopup()
+  {
+    bookmarkListPopup.classList.remove('open');
   }
 
-  function suraToTop() {
-    let sura = suraList.value;
-    if (sura) document.getElementById('sura-' + sura).scrollIntoView({ behavior: 'smooth' });
+  function quranToTop()
+  {
+    closeNavs();
+    document.getElementById('quran-container').scrollIntoView();
   }
 
-  function suraShortcutToTop(listItem) {
-    let sura = listItem.dataset.suraId;
-    if (sura) document.getElementById('sura-' + sura).scrollIntoView({ behavior: 'smooth' });
+  function quranToBottom()
+  {
+    closeNavs();
+    document.getElementById('quran-container').scrollIntoView({block:'end'});
   }
 
-  function pageToTop() {
-    let page = pageNo.value;
-    if (page) document.getElementById('page-' + page).scrollIntoView({ behavior: 'smooth' });
+
+  function suraToTop()
+  {
+    juzList.selectedIndex = 0;
+    pageNo.value = null;
+    closeNavs();
+
+    if (this.value)
+    {
+      document.getElementById(suraList.value).scrollIntoView();
+      window.scrollBy(0, -navTop.offsetHeight);
+    }
   }
 
+  function juzToTop()
+  {
+    suraList.selectedIndex = 0;
+    pageNo.value = null;
+    closeNavs();
+
+    if (this.value)
+    {
+      document.getElementById(this.value).scrollIntoView();
+      window.scrollBy(0, -navTop.offsetHeight);
+    }
+  }
+
+  function pageToTop()
+  {
+    suraList.selectedIndex = 0;
+    juzList.selectedIndex = 0;
+    closeNavs();
+
+    if (parseInt(pageNo.value) >= 0 && parseInt(pageNo.value) <= 604)
+    {
+      document.getElementById('p'+pageNo.value).scrollIntoView();
+      window.scrollBy(0, -navTop.offsetHeight);
+    }
+  }
+
+  function suraShortcutToTop(shortcut)
+  {
+    if (shortcut.dataset.suraId)
+    {
+      document.getElementById(shortcut.dataset.suraId).scrollIntoView();
+      window.scrollBy(0, -navTop.offsetHeight);
+    }
+
+    closeNavs();
+  }
+
+  function setColor(color)
+  {
+    document.documentElement.style.setProperty('--set-color', color);
+
+    if (color != defaultColor)
+    {
+      localStorage.setItem('color', color);
+    }
+    else
+    {
+      localStorage.removeItem('color')
+    }
+
+    closeNavs();
+  }
+
+  function setBgColor(bgColor)
+  {
+    document.documentElement.style.setProperty('--set-bg-color', bgColor);
+
+    if (bgColor != defaultBgColor)
+    {
+      localStorage.setItem('bgColor', bgColor);
+    }
+    else
+    {
+      localStorage.removeItem('bgColor')
+    }
+
+    closeNavs();
+  }
+
+  function setFontSize(fontSize)
+  {
+    document.documentElement.style.setProperty('--set-font-size', fontSize)
+
+    if (fontSize != defaultFontSize)
+    {
+      localStorage.setItem('fontSize', fontSize);
+    }
+    else
+    {
+      localStorage.removeItem('fontSize')
+    }
+
+    closeNavs();
+  }
+
+  function setFontFamily(fontFamily)
+  {
+    document.documentElement.style.setProperty('--set-font-family', fontFamily);
+
+    if (fontFamily != defaultFontFamily)
+    {
+      localStorage.setItem('fontFamily', fontFamily);
+    }
+    else
+    {
+      localStorage.removeItem('fontFamily')
+    }
+
+    closeNavs();
+  }
+
+  function loading(load = true, opacity = 1)
+  {
+    if(load)
+    {
+      loadingOverlay.style.display = 'block';
+      loadingOverlay.style.opacity = opacity;
+      loadingOverlay.style.visibility = 'visible';
+    }
+    else
+    {
+      loadingOverlay.style.opacity = '0';
+      loadingOverlay.style.visibility = 'hidden';
+      loadingOverlay.style.display = 'none';
+    }
+  }
 };

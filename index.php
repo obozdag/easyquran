@@ -55,6 +55,7 @@
 		<i class="close-btn right rb-circle-xmark" id="close-nav-left"></i>
 		<div class="settings">
 			<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
+			<h4 class="nav-header"></h4>
 			<div class="row">
 				<label id="sura-list-label"></label>
 				<div class="flex">
@@ -97,7 +98,7 @@
 	<nav id="nav-right" class="nav-side">
 		<i class="close-btn left rb-circle-xmark" id="close-nav-right"></i>
 		<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
-		<h4 id="settings-header"></h4>
+		<h4 class="nav-header" id="settings-header"></h4>
 		<div class="settings">
 			<div class="row">
 				<label id="font-family-list-label"></label>
