@@ -1,6 +1,6 @@
 <?php
 	$prg_name    = 'Easy Quran';
-	$version     = 'v1.94.01';
+	$version     = 'v1.94.02';
 	$color       = '#008b8b';
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');
@@ -181,7 +181,7 @@
 		<div class="overlay" id="bookmark-list-popup">
 			<div class="popup">
 				<i id="bookmark-list-popup-close-btn" class="close-btn right rb-circle-xmark"></i>
-				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name ?></h3>
+				<h3><i class="logo rb-easyquran-solid"></i> <?= $prg_name.' '.$version ?></h3>
 				<h4 id="bookmark-list-header">Bookmark List</h4>
 				<ul id="bookmark-list-content"></ul>
 			</div>
