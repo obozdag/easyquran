@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.94.05 - 2026-06-14
+
+- Renamed the default branch from `master` to `main`.
+- Removed the merged PWA feature branch after release.
+- Removed the old remote `master` branch so only `main` remains.
+- Switched the local `origin` remote to SSH for reliable push and fetch operations.
+- Documented the branch cleanup and release workflow in the README.
+
 ## v1.94.04 - 2026-06-14
 
 - Added a single application config source for program metadata and versioning.
@@ -11,4 +19,3 @@
 - Improved accessibility by using button controls with ARIA labels for navigation and popup actions.
 - Escaped dynamic PHP output and fixed the footer link markup.
 - Updated the footer to show the current application version.
-

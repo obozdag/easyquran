@@ -3,7 +3,7 @@ Easy Quran is a progressive web application. You can read on web page and instal
 
 After installing without internet connection it can run offline.
 
-Current version: v1.94.04
+Current version: v1.94.05
 
 ## Features
 
@@ -33,6 +33,8 @@ Current version: v1.94.04
 
 Application metadata is stored in `app_config.json`. The PHP page, JavaScript service worker registration, and service worker cache names all read the version from this single source.
 
+The repository uses `main` as its default branch. Temporary feature branches should be merged and deleted after release so the remote stays focused on the current production line.
+
 When releasing a new version:
 
 1. Update `version` in `app_config.json`.
@@ -42,6 +44,8 @@ When releasing a new version:
 ## PWA Notes
 
 The service worker keeps the application shell in a versioned cache and stores runtime responses separately. Navigation requests try the network first and fall back to the cached `index.php` when offline.
+
+If an older app shell appears after deployment, refresh once after the new service worker activates or open the app with a temporary cache-busting query string.
 
 For feature requests or any bug reports please send email to info at fklavye dot net
 
