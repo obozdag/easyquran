@@ -144,7 +144,7 @@ window.onload = () => {
   function restoreSettings() {
     if (localStorage.getItem('bookmarks')) {
       fillBookmarkList();
-      if (bookmarks[0]?.target) gotoBookmark(bookmarks[0].target);
+      if (bookmarks[bookmarks.length - 1]?.target) gotoBookmark(bookmarks[bookmarks.length - 1].target);
     }
 
     if (localStorage.getItem('language')) {
