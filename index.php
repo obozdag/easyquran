@@ -205,7 +205,7 @@
 	<footer>
 		<a target="_blank" rel="noopener" href="<?= e($repository) ?>">
 			<i class="logo rb-easyquran-solid" title="<?= e($prg_name) ?>"></i>
-			 <?= e($prg_name) ?>
+			 <?= e($prg_name . ' ' . $version_tag) ?>
 		</a>
 	</footer>
 </body>
