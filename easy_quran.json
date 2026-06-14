@@ -2,8 +2,12 @@
 	"name": "Easy Quran",
 	"short_name": "Easy Quran",
 	"description": "Easy to read and scroll",
+	"id": "/",
 	"start_url": "/",
-	"display": "fullscreen",
+	"scope": "/",
+	"display": "standalone",
+	"lang": "ar",
+	"dir": "rtl",
 	"background_color": "#008b8b",
 	"theme_color": "#008b8b",
 	"icons": [
@@ -35,7 +39,8 @@
 		{
 			"src": "css/icons/easy_quran_192x192.png",
 			"type": "image/png",
-			"sizes": "192x192"
+			"sizes": "192x192",
+			"purpose": "any maskable"
 		},
 		{
 			"src": "css/icons/easy_quran_384x384.png",
@@ -45,7 +50,22 @@
 		{
 			"src": "css/icons/easy_quran_512x512.png",
 			"type": "image/png",
-			"sizes": "512x512"
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Easy Quran",
+			"short_name": "Read",
+			"url": "/",
+			"icons": [
+				{
+					"src": "css/icons/easy_quran_192x192.png",
+					"type": "image/png",
+					"sizes": "192x192"
+				}
+			]
 		}
 	]
 }
