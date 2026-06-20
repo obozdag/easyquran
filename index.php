@@ -7,6 +7,7 @@
 	$color       = $app_config['color'] ?? '#008b8b';
 	$canonical   = $app_config['canonicalUrl'] ?? 'https://quran.fklavye.net';
 	$repository  = $app_config['repositoryUrl'] ?? 'https://github.com/obozdag/easyquran';
+	$asset_v     = rawurlencode($version);
 	$pdo         = new PDO('sqlite:db/quran.db');
 	$rows_sura   = $pdo->query('SELECT * FROM fkl_sura');
 	$rows_verse  = $pdo->query('SELECT v.*, s.name AS sura_name, s.tr AS sura_tr, s.en AS sura_en, s.basmala, s.verses, s.sajdah AS sura_sajdah FROM fkl_verse v INNER JOIN fkl_sura s ON s.id = v.sura_id');
@@ -28,9 +29,9 @@
 	<link rel="canonical" href="<?= e($canonical) ?>">
 	<link rel="preload" href="/css/fonts/EasyArabic.ttf" as="font" crossorigin>
 	<link rel="preload" href="/css/fonts/rb.ttf" as="font" crossorigin>
-	<link rel="stylesheet" type="text/css" href="/css/easy_quran.css">
-	<link rel="apple-touch-icon" href="/css/icons/easy_quran_96x96.png">
-	<link rel="manifest" href="/easy_quran.json">
+	<link rel="stylesheet" type="text/css" href="/css/easy_quran.css?v=<?= e($asset_v) ?>">
+	<link rel="apple-touch-icon" href="/css/icons/apple-touch-icon.png?v=<?= e($asset_v) ?>">
+	<link rel="manifest" href="/easy_quran.json?v=<?= e($asset_v) ?>">
 	<script type="text/javascript">
 		window.appConfig = {
 			programName: '<?= e($prg_name) ?>',
@@ -40,11 +41,11 @@
 		var prg_name = window.appConfig.programName;
 		var version  = window.appConfig.versionLabel;
 	</script>
-	<script defer src="/js/swipe.js"></script>
-	<script defer src="/js/lang.js"></script>
-	<script defer src="/js/defaults.js"></script>
-	<script defer src="/js/easy_quran.js"></script>
-	<script defer src="/app.js"></script>
+	<script defer src="/js/swipe.js?v=<?= e($asset_v) ?>"></script>
+	<script defer src="/js/lang.js?v=<?= e($asset_v) ?>"></script>
+	<script defer src="/js/defaults.js?v=<?= e($asset_v) ?>"></script>
+	<script defer src="/js/easy_quran.js?v=<?= e($asset_v) ?>"></script>
+	<script defer src="/app.js?v=<?= e($asset_v) ?>"></script>
 </head>
 <body>
 	<div id="loading-overlay">

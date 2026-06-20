@@ -3,35 +3,40 @@ importScripts('/app-config.php');
 const version = self.EASY_QURAN_CONFIG?.version ?? 'dev';
 const APP_SHELL_CACHE = `easy-quran-app-shell-v${version}`;
 const RUNTIME_CACHE = `easy-quran-runtime-v${version}`;
+const CACHE_PREFIX = 'easy-quran-';
+const versionParam = `v=${encodeURIComponent(version)}`;
 
 const staticContentToCache = [
-	'app.js',
+	`app.js?${versionParam}`,
 	'app-config.php',
-	'css/easy_quran.css',
+	`css/easy_quran.css?${versionParam}`,
 	'css/fonts.css',
 	'css/fonts/EasyArabic.ttf',
 	'css/fonts/Lateef.ttf',
 	'css/fonts/rb.ttf',
-	'css/icons/easy_quran_128x128.png',
-	'css/icons/easy_quran_144x144.png',
-	'css/icons/easy_quran_152x152.png',
-	'css/icons/easy_quran_192x192.png',
+	`css/icons/apple-touch-icon.png?${versionParam}`,
+	`css/icons/easy_quran_128x128.png?${versionParam}`,
+	`css/icons/easy_quran_144x144.png?${versionParam}`,
+	`css/icons/easy_quran_152x152.png?${versionParam}`,
+	`css/icons/easy_quran_192x192.png?${versionParam}`,
 	'css/icons/easy_quran_32x32.png',
-	'css/icons/easy_quran_384x384.png',
+	`css/icons/easy_quran_384x384.png?${versionParam}`,
 	'css/icons/easy_quran_48x48.png',
-	'css/icons/easy_quran_512x512.png',
+	`css/icons/easy_quran_512x512.png?${versionParam}`,
 	'css/icons/easy_quran_64x64.png',
-	'css/icons/easy_quran_72x72.png',
-	'css/icons/easy_quran_96x96.png',
+	`css/icons/easy_quran_72x72.png?${versionParam}`,
+	`css/icons/easy_quran_96x96.png?${versionParam}`,
+	`css/icons/easy_quran_maskable_192x192.png?${versionParam}`,
+	`css/icons/easy_quran_maskable_512x512.png?${versionParam}`,
 	'css/icons/loading.gif',
 	'css/rb.css',
 	'favicon.ico',
-	'easy_quran.json',
+	`easy_quran.json?${versionParam}`,
 	'index.php',
-	'js/defaults.js',
-	'js/easy_quran.js',
-	'js/lang.js',
-	'js/swipe.js',
+	`js/defaults.js?${versionParam}`,
+	`js/easy_quran.js?${versionParam}`,
+	`js/lang.js?${versionParam}`,
+	`js/swipe.js?${versionParam}`,
 	'languages/en/program_info.php',
 	'languages/tr/program_info.php',
 ];
@@ -110,7 +115,7 @@ self.addEventListener('activate', evt => {
 		caches.keys()
 			.then(keys => Promise.all(
 				keys
-					.filter(key => key !== APP_SHELL_CACHE && key !== RUNTIME_CACHE)
+					.filter(key => key.startsWith(CACHE_PREFIX) && key !== APP_SHELL_CACHE && key !== RUNTIME_CACHE)
 					.map(key => caches.delete(key)),
 			))
 			.then(() => self.clients.claim()),

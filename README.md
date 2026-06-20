@@ -3,7 +3,7 @@ Easy Quran is a progressive web application. You can read on web page and instal
 
 After installing without internet connection it can run offline.
 
-Current version: v1.94.05
+Current version: v1.94.06
 
 ## Features
 
@@ -40,10 +40,16 @@ When releasing a new version:
 1. Update `version` in `app_config.json`.
 2. Add an entry to `CHANGELOG.md`.
 3. Confirm the footer shows the new version.
+4. Keep the manifest link, manifest icon `?v=` values, app CSS/JS query strings, and service worker cache revision synchronized with the same version.
+5. Preserve the normal, maskable, and iOS icon split. Maskable icons should use an opaque white canvas with safe-area padding, and `apple-touch-icon.png` should remain a separate padded iOS icon.
 
 ## PWA Notes
 
 The service worker keeps the application shell in a versioned cache and stores runtime responses separately. Navigation requests try the network first and fall back to the cached `index.php` when offline.
+
+Update banner text comes from `js/lang.js`. The automatic reload flow shows a short localized status message and does not render a manual Reload button.
+
+App content and cache normally update through the service worker flow. Launcher icon updates for existing Android/iOS home screen shortcuts are controlled by the operating system; removing and reinstalling the shortcut is only a test or last-resort step.
 
 If an older app shell appears after deployment, refresh once after the new service worker activates or open the app with a temporary cache-busting query string.
 

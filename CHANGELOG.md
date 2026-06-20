@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.94.06 - 2026-06-20
+
+- Added separate padded maskable PWA icons and a dedicated iOS touch icon.
+- Versioned the manifest link, manifest icon URLs, app CSS/JS assets, and service worker app-shell entries.
+- Scoped service worker cache cleanup to Easy Quran caches and kept auto-activation enabled.
+- Added startup service worker update checks with a one-time reload guard.
+- Added a compact localized update banner sourced from `js/lang.js` without a manual Reload button.
+
 ## v1.94.05 - 2026-06-14
 
 - Renamed the default branch from `master` to `main`.
