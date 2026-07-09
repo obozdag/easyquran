@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.94.07 - 2026-07-07
+
+- Added privacy-preserving daily aggregate telemetry for app opens, PWA installs, standalone launches, update readiness, and coarse error counts.
+- Added a same-origin Publisher latest-check proxy for anonymous active-install telemetry without exposing user IPs to Publisher.
+- Added Publisher-compatible release artifact preparation and publish tooling with checksum validation and dry-run support.
+- Documented the release workflow, privacy contract, Publisher usage, and deployment verification steps.
+
 ## v1.94.06 - 2026-06-20
 
 - Added separate padded maskable PWA icons and a dedicated iOS touch icon.

@@ -36,7 +36,10 @@
 		window.appConfig = {
 			programName: '<?= e($prg_name) ?>',
 			version: '<?= e($version) ?>',
-			versionLabel: '<?= e($version_tag) ?>'
+			versionLabel: '<?= e($version_tag) ?>',
+			productKey: '<?= e($app_config['productKey'] ?? 'easy-quran') ?>',
+			releaseChannel: '<?= e($app_config['releaseChannel'] ?? 'stable') ?>',
+			telemetryEnabled: <?= (($app_config['telemetry']['enabled'] ?? false) === true) ? 'true' : 'false' ?>
 		};
 		var prg_name = window.appConfig.programName;
 		var version  = window.appConfig.versionLabel;
@@ -44,6 +47,7 @@
 	<script defer src="/js/swipe.js?v=<?= e($asset_v) ?>"></script>
 	<script defer src="/js/lang.js?v=<?= e($asset_v) ?>"></script>
 	<script defer src="/js/defaults.js?v=<?= e($asset_v) ?>"></script>
+	<script defer src="/js/telemetry.js?v=<?= e($asset_v) ?>"></script>
 	<script defer src="/js/easy_quran.js?v=<?= e($asset_v) ?>"></script>
 	<script defer src="/app.js?v=<?= e($asset_v) ?>"></script>
 </head>

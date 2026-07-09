@@ -1,7 +1,18 @@
 {
 	"programName": "Easy Quran",
-	"version": "1.94.06",
+	"version": "1.94.07",
 	"color": "#008b8b",
 	"canonicalUrl": "https://quran.fklavye.net",
-	"repositoryUrl": "https://github.com/obozdag/easyquran"
+	"repositoryUrl": "https://github.com/obozdag/easyquran",
+	"productKey": "easy-quran",
+	"releaseChannel": "stable",
+	"publisher": {
+		"enabled": true,
+		"latestUrl": "https://publisher.webblocksui.com/api/updates/latest"
+	},
+	"telemetry": {
+		"enabled": true,
+		"schemaVersion": 1,
+		"privacy": "Daily aggregate counters only. No IP addresses, content choices, bookmarks, locations, raw user agents, or raw request logs are stored."
+	}
 }

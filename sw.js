@@ -37,6 +37,7 @@ const staticContentToCache = [
 	`js/easy_quran.js?${versionParam}`,
 	`js/lang.js?${versionParam}`,
 	`js/swipe.js?${versionParam}`,
+	`js/telemetry.js?${versionParam}`,
 	'languages/en/program_info.php',
 	'languages/tr/program_info.php',
 ];

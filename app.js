@@ -27,6 +27,7 @@ if ('serviceWorker' in navigator)
 
 		banner.textContent = getUpdateText('updating-app');
 		banner.classList.add('open');
+		window.easyQuranTelemetry?.track?.('pwa_update_ready');
 	}
 
 	function trackInstallingWorker(worker)
