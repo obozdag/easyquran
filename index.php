@@ -31,7 +31,7 @@
 	<link rel="preload" href="/css/fonts/rb.ttf" as="font" crossorigin>
 	<link rel="stylesheet" type="text/css" href="/css/easy_quran.css?v=<?= e($asset_v) ?>">
 	<link rel="apple-touch-icon" href="/css/icons/apple-touch-icon.png?v=<?= e($asset_v) ?>">
-	<link rel="manifest" href="/easy_quran.json?v=<?= e($asset_v) ?>">
+	<link rel="manifest" href="/manifest.php">
 	<script type="text/javascript">
 		window.appConfig = {
 			programName: '<?= e($prg_name) ?>',

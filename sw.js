@@ -31,7 +31,7 @@ const staticContentToCache = [
 	'css/icons/loading.gif',
 	'css/rb.css',
 	'favicon.ico',
-	`easy_quran.json?${versionParam}`,
+	'manifest.php',
 	'index.php',
 	`js/defaults.js?${versionParam}`,
 	`js/easy_quran.js?${versionParam}`,
