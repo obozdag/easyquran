@@ -3,7 +3,7 @@ Easy Quran is a progressive web application. You can read on web page and instal
 
 After installing without internet connection it can run offline.
 
-Current version: v1.94.06
+Current version: v1.94.09
 
 ## Features
 
@@ -33,7 +33,7 @@ Current version: v1.94.06
 
 ## Versioning
 
-Application metadata is stored in `app_config.json`. The PHP page, JavaScript service worker registration, and service worker cache names all read the version from this single source.
+Application metadata is stored in `app_config.json`. The PHP page, JavaScript service worker registration, and service worker cache names all read the application version from this single source. Manifest icons use the separate `iconVersion` so routine releases do not appear to Android/Chrome as app identity changes.
 
 The repository uses `main` as its default branch. Temporary feature branches should be merged and deleted after release so the remote stays focused on the current production line.
 
@@ -42,9 +42,10 @@ When releasing a new version:
 1. Update `version` in `app_config.json`.
 2. Add an entry to `CHANGELOG.md`.
 3. Confirm the footer shows the new version.
-4. Keep the manifest link, manifest icon `?v=` values, app CSS/JS query strings, and service worker cache revision synchronized with the same version.
-5. Preserve the normal, maskable, and iOS icon split. Maskable icons should use an opaque white canvas with safe-area padding, and `apple-touch-icon.png` should remain a separate padded iOS icon.
-6. Run `php scripts/release.php check`, `php scripts/release.php prepare`, and `php scripts/release.php publish --dry-run`.
+4. Keep app CSS/JS query strings and the service worker cache revision synchronized with `version`.
+5. Change `iconVersion` only when the icon artwork actually changes; this intentionally triggers an Android/Chrome identity-update review.
+6. Preserve the normal, maskable, and iOS icon split. Maskable icons should use an opaque white canvas with safe-area padding, and `apple-touch-icon.png` should remain a separate padded iOS icon.
+7. Run `php scripts/release.php check`, `php scripts/release.php prepare`, and `php scripts/release.php publish --dry-run`.
 
 Release artifacts can be published to WebBlocks Publisher with `php scripts/release.php publish`. The script reads `WEBBLOCKS_PUBLISHER_URL`, `WEBBLOCKS_PUBLISHER_TOKEN`, `WEBBLOCKS_PUBLISHER_PRODUCT`, and `WEBBLOCKS_PUBLISHER_CHANNEL` from a local ignored `.env` file when present. Publisher is used for artifact hosting, checksums, release history, downloads, update-check totals, and anonymous active-install telemetry; the PWA itself still updates through the service worker.
 

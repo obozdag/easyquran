@@ -2,23 +2,24 @@
 
 declare(strict_types=1);
 
-// Serves the PWA manifest with icon cache-busting derived from the single
-// version source in app_config.json. The static easy_quran.json is a
-// version-free template; this script injects `?v=<version>` into every icon so
-// the version lives in exactly one place (mirrors app-config.php, which emits
-// the service worker config from the same app_config.json).
+// Serves the PWA manifest with an icon revision that is intentionally
+// independent from the application version. Changing a manifest icon URL is
+// treated as an app identity change by Android/Chrome and can require explicit
+// user approval, so iconVersion must only change when the icon really changes.
 
 $config = json_decode((string) file_get_contents(__DIR__ . '/app_config.json'), true);
 $config = is_array($config) ? $config : [];
 
-$version = isset($config['version']) && trim((string) $config['version']) !== ''
-	? trim((string) $config['version'])
-	: 'dev';
+$iconVersion = isset($config['iconVersion']) && trim((string) $config['iconVersion']) !== ''
+	? trim((string) $config['iconVersion'])
+	: (isset($config['version']) && trim((string) $config['version']) !== ''
+		? trim((string) $config['version'])
+		: 'dev');
 
 $manifest = json_decode((string) file_get_contents(__DIR__ . '/easy_quran.json'), true);
 $manifest = is_array($manifest) ? $manifest : [];
 
-$versionQuery = '?v=' . rawurlencode($version);
+$versionQuery = '?v=' . rawurlencode($iconVersion);
 
 $withVersion = static function (array $icons) use ($versionQuery): array {
 	foreach ($icons as &$icon) {

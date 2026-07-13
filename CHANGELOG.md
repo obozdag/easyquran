@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.94.09 - 2026-07-13
+
+- Decoupled manifest icon URLs from routine application releases so Android/Chrome no longer asks users to approve an unchanged icon on every update.
+- Added a dedicated `iconVersion` that changes only when the icon artwork changes.
+- Updated release documentation for the independent icon revision.
+
 ## v1.94.08 - 2026-07-10
 
 - Made `app_config.json` the single source of the version. The PWA manifest is now served by `manifest.php` (which reads `app_config.json` and injects the version into icon URLs), and `easy_quran.json` became a version-free template. Bumping the version in `app_config.json` now propagates to the page, service worker caches, and manifest icons with no other edits.
