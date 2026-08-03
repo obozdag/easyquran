@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.94.10 - 2026-08-03
+
+- Added safe-area padding to the standard PWA icons so the logo no longer touches the rounded launcher-icon edges on mobile devices.
+
 ## v1.94.09 - 2026-07-13
 
 - Decoupled manifest icon URLs from routine application releases so Android/Chrome no longer asks users to approve an unchanged icon on every update.
